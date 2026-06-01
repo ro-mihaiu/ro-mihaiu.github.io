@@ -1,7 +1,7 @@
 import React from 'react'
 
 const links = [
-  'Home', 'Builds', 'Projects', 'Server Life', 'Businesses', 'Automation', 'Portfolio', 'About', 'Contact'
+  'Home', 'Builds', 'Projects', 'Player Warps', 'About', 'Contact'
 ]
 
 export default function Navbar() {
@@ -10,7 +10,11 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-4">
         <nav className="flex flex-wrap justify-center gap-6 items-center">
           {links.map((l) => (
-            <a key={l} href={`#${l.toLowerCase().replace(/\s+/g, '-')}`} className="relative px-1 py-2 text-sm text-gray-200 hover:text-white">
+            <a
+              key={l}
+              href={l === 'Player Warps' ? '/player-warps' : `#${l.toLowerCase().replace(/\s+/g, '-')}`}
+              className="relative px-1 py-2 text-sm text-gray-200 hover:text-white"
+            >
               <span className="hover:underline decoration-sakura-pink decoration-2">{l}</span>
             </a>
           ))}
