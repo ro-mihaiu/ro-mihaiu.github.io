@@ -22,5 +22,11 @@ Next steps I can take now:
 - Implement falling sakura petal particle system (canvas/Three.js)
 - Add server stats API and mock data
 - Replace placeholders with real Minecraft screenshots
-"# ro-mihaiu.github.io" 
-"# ro-mihaiu.github.io" 
+
+Deployment:
+
+Deploy to GitHub Pages at <https://ro-mihaiu.github.io> with:
+
+```bash
+npm run build
+```
