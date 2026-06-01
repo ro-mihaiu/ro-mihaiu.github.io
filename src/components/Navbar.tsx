@@ -12,7 +12,13 @@ export default function Navbar() {
           {links.map((l) => (
             <a
               key={l}
-              href={l === 'Player Warps' ? '/player-warps' : `#${l.toLowerCase().replace(/\s+/g, '-')}`}
+              href={
+                l === 'Player Warps'
+                  ? '/player-warps'
+                  : l === 'Builds'
+                  ? '/builds'
+                  : `#${l.toLowerCase().replace(/\s+/g, '-')}`
+              }
               className="relative px-1 py-2 text-sm text-gray-200 hover:text-white"
             >
               <span className="hover:underline decoration-sakura-pink decoration-2">{l}</span>
