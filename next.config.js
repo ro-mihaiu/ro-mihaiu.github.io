@@ -1,12 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
+  swcMinify: true,
   images: {
-    formats: ["image/avif", "image/webp"],
     unoptimized: true,
+    formats: ["image/avif", "image/webp"],
   },
-  basePath: process.env.NODE_ENV === 'production' ? '' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '' : '',
   output: 'export',
   trailingSlash: true,
 };
