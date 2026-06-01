@@ -26,17 +26,18 @@ export default function ServerLifeSection() {
 
         <div className="grid gap-6 xl:grid-cols-3">
           {lifeItems.map((item, index) => (
-            <motion.article
+            <motion.div
               key={item.title}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.45, delay: index * 0.08 }}
-              className="rounded-[2rem] border border-white/10 bg-black/40 p-8 shadow-xl shadow-black/30 backdrop-blur-xl"
             >
-              <p className="text-sm uppercase tracking-[0.3em] text-blossom-pink/80">{item.title}</p>
-              <p className="mt-4 text-gray-300 leading-7">{item.description}</p>
-            </motion.article>
+              <div className="rounded-[2rem] border border-white/10 bg-black/40 p-8 shadow-xl shadow-black/30 backdrop-blur-xl">
+                <p className="text-sm uppercase tracking-[0.3em] text-blossom-pink/80">{item.title}</p>
+                <p className="mt-4 text-gray-300 leading-7">{item.description}</p>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>
