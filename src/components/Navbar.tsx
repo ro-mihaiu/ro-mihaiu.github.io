@@ -16,8 +16,8 @@ export default function Navbar() {
                 l === 'Player Warps'
                   ? '/player-warps'
                   : l === 'Builds'
-                  ? '/builds'
-                  : `#${l.toLowerCase().replace(/\s+/g, '-')}`
+                    ? '/builds'
+                    : `#${l.toLowerCase().replace(/\s+/g, '-')}`
               }
               className="relative px-1 py-2 text-sm text-gray-200 hover:text-white"
             >

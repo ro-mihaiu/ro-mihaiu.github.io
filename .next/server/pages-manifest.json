@@ -1,1 +1,8 @@
-{"/_app":"pages/_app.js","/_error":"pages/_error.js","/cookies":"pages/cookies.html","/404":"pages/404.html","/":"pages/index.html","/tos":"pages/tos.html","/_document":"pages/_document.js"}
+{
+  "/_app": "pages/_app.js",
+  "/_document": "pages/_document.js",
+  "/_error": "pages/_error.js",
+  "/builds": "pages/builds.js",
+  "/builds/[slug]": "pages/builds/[slug].js",
+  "/": "pages/index.js"
+}
