@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
@@ -17,6 +18,30 @@ export default function BuildDetail() {
     )
   }
 
+  const [lightboxOpen, setLightboxOpen] = useState(false)
+  const [photoIndex, setPhotoIndex] = useState(0)
+
+  function prev() {
+    if (!build) return
+    setPhotoIndex((i) => (i - 1 + build.photos.length) % build.photos.length)
+  }
+
+  function next() {
+    if (!build) return
+    setPhotoIndex((i) => (i + 1) % build.photos.length)
+  }
+
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (!lightboxOpen) return
+      if (e.key === 'ArrowLeft') prev()
+      if (e.key === 'ArrowRight') next()
+      if (e.key === 'Escape') setLightboxOpen(false)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [lightboxOpen, build])
+
   return (
     <>
       <Head>
@@ -31,11 +56,50 @@ export default function BuildDetail() {
 
           <div className="grid gap-6 md:grid-cols-3 mb-6">
             {(build.photos || []).slice(0, 3).map((p, i) => (
-              <div key={i} className="h-48 bg-gray-800 flex items-center justify-center overflow-hidden rounded-lg">
+              <div
+                key={i}
+                className="h-48 bg-gray-800 flex items-center justify-center overflow-hidden rounded-lg cursor-pointer"
+                onClick={() => {
+                  setPhotoIndex(i)
+                  setLightboxOpen(true)
+                }}
+              >
                 <img src={p} alt={`${build.title} ${i + 1}`} className="object-cover w-full h-full" />
               </div>
             ))}
           </div>
+
+          {lightboxOpen && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85">
+              <button
+                onClick={() => setLightboxOpen(false)}
+                className="absolute top-6 right-6 text-white text-2xl bg-black/40 rounded-full w-10 h-10 flex items-center justify-center"
+                aria-label="Close"
+              >
+                ×
+              </button>
+
+              <button
+                onClick={prev}
+                className="absolute left-6 text-gray-200 bg-black/40 rounded-full w-12 h-12 flex items-center justify-center text-3xl"
+                aria-label="Previous"
+              >
+                ‹
+              </button>
+
+              <div className="max-w-[90vw] max-h-[86vh]">
+                <img src={build.photos[photoIndex]} alt={`${build.title} full ${photoIndex + 1}`} className="object-contain w-full h-full" />
+              </div>
+
+              <button
+                onClick={next}
+                className="absolute right-6 text-gray-200 bg-black/40 rounded-full w-12 h-12 flex items-center justify-center text-3xl"
+                aria-label="Next"
+              >
+                ›
+              </button>
+            </div>
+          )}
 
           <div className="grid gap-6 md:grid-cols-2">
             <div className="rounded-2xl border border-white/5 bg-black/30 p-6">
