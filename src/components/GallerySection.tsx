@@ -35,9 +35,9 @@ export default function GallerySection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.45, delay: index * 0.08 }}
-              className="group rounded-[2rem] overflow-hidden border border-white/10 bg-black/30 shadow-xl shadow-black/30 backdrop-blur-xl"
             >
-              <div className="h-72 bg-[#14101b] bg-[radial-gradient(circle_at_top,_rgba(255,138,194,0.15),_transparent_40%)] p-6">
+              <div className="group rounded-[2rem] overflow-hidden border border-white/10 bg-black/30 shadow-xl shadow-black/30 backdrop-blur-xl">
+                <div className="h-72 bg-[#14101b] bg-[radial-gradient(circle_at_top,_rgba(255,138,194,0.15),_transparent_40%)] p-6">
                 <div className="flex h-full flex-col justify-between">
                   <div className="space-y-2">
                     <p className="text-sm uppercase tracking-[0.3em] text-blossom-pink/80">{item.category}</p>
@@ -45,6 +45,7 @@ export default function GallerySection() {
                   </div>
                   <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.2em] text-gray-200">View</div>
                 </div>
+              </div>
               </div>
             </motion.div>
           ))}

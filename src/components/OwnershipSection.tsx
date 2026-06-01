@@ -27,10 +27,12 @@ export default function OwnershipSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.45, delay: index * 0.08 }}
-              className={`rounded-[2rem] border p-7 shadow-xl shadow-black/20 backdrop-blur-xl ${item.color} hover:-translate-y-1 transition-transform`}>
-              <p className="text-sm uppercase tracking-[0.3em] text-gray-300">{item.title}</p>
-              <h3 className="mt-3 text-2xl font-semibold text-white">{item.subtitle.split(',')[0]}</h3>
-              <p className="mt-4 text-gray-300">{item.subtitle}</p>
+            >
+              <div className={`rounded-[2rem] border p-7 shadow-xl shadow-black/20 backdrop-blur-xl ${item.color} hover:-translate-y-1 transition-transform`}>
+                <p className="text-sm uppercase tracking-[0.3em] text-gray-300">{item.title}</p>
+                <h3 className="mt-3 text-2xl font-semibold text-white">{item.subtitle.split(',')[0]}</h3>
+                <p className="mt-4 text-gray-300">{item.subtitle}</p>
+              </div>
             </motion.div>
           ))}
         </div>
