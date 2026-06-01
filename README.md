@@ -23,3 +23,4 @@ Next steps I can take now:
 - Add server stats API and mock data
 - Replace placeholders with real Minecraft screenshots
 "# ro-mihaiu.github.io" 
+"# ro-mihaiu.github.io" 
