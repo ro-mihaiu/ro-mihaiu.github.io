@@ -19,20 +19,18 @@ export default function BuildsPage() {
           <div className="grid gap-6 sm:grid-cols-2">
             {builds.map((b) => (
               <article key={b.slug} className="rounded-2xl overflow-hidden border border-white/5 bg-black/30">
-                <Link href={`/builds/${b.slug}`}>
-                  <a className="block">
-                    <div className="h-48 bg-gray-800 flex items-center justify-center text-gray-400">
-                      <img src={b.photos[0]} alt={b.title} className="object-cover w-full h-48" />
-                    </div>
-                    <div className="p-4">
-                      <h3 className="text-lg font-semibold">{b.title}</h3>
-                      <p className="text-sm text-gray-300">{b.short}</p>
-                    </div>
-                  </a>
+                <Link href={`/builds/${b.slug}`} className="block">
+                  <div className="h-48 bg-gray-800 flex items-center justify-center text-gray-400">
+                    <img src={b.photos[0]} alt={b.title} className="object-cover w-full h-48" />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="text-lg font-semibold">{b.title}</h3>
+                    <p className="text-sm text-gray-300">{b.short}</p>
+                  </div>
                 </Link>
                 <div className="p-4 border-t border-white/5 flex justify-end">
-                  <Link href={`/builds/${b.slug}`}>
-                    <a className="rounded-md px-3 py-2 bg-sakura-pink/80 text-black font-medium">See more</a>
+                  <Link href={`/builds/${b.slug}`} className="rounded-md px-3 py-2 bg-sakura-pink/80 text-black font-medium">
+                    See more
                   </Link>
                 </div>
               </article>
