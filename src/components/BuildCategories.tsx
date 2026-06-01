@@ -39,22 +39,23 @@ export default function BuildCategories() {
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {categories.map((category, index) => (
-            <motion.article
+            <motion.div
               key={category.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.45, delay: index * 0.08 }}
-              className="group rounded-[2rem] border border-white/10 bg-black/40 p-8 shadow-xl shadow-black/30 backdrop-blur-xl hover:-translate-y-1 hover:border-sakura-pink/50 hover:bg-black/60 transition-transform"
             >
-              <div className="mb-6 flex h-44 items-end overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-[#0d0b13] via-[#1b1526] to-[#160f18] p-6">
-                <div className="text-white">
-                  <p className="text-sm uppercase tracking-[0.3em] text-blossom-pink/80">{category.accent}</p>
-                  <h3 className="mt-3 text-2xl font-semibold">{category.title}</h3>
+              <div className="group rounded-[2rem] border border-white/10 bg-black/40 p-8 shadow-xl shadow-black/30 backdrop-blur-xl hover:-translate-y-1 hover:border-sakura-pink/50 hover:bg-black/60 transition-transform">
+                <div className="mb-6 flex h-44 items-end overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-[#0d0b13] via-[#1b1526] to-[#160f18] p-6">
+                  <div className="text-white">
+                    <p className="text-sm uppercase tracking-[0.3em] text-blossom-pink/80">{category.accent}</p>
+                    <h3 className="mt-3 text-2xl font-semibold">{category.title}</h3>
+                  </div>
                 </div>
+                <p className="text-gray-300">{category.description}</p>
               </div>
-              <p className="text-gray-300">{category.description}</p>
-            </motion.article>
+            </motion.div>
           ))}
         </div>
       </div>
