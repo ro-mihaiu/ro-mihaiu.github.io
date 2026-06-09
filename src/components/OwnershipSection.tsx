@@ -27,8 +27,8 @@ export default function OwnershipSection() {
             <p className="text-sm uppercase tracking-[0.3em] text-gray-300">Owned player warps</p>
             <div className="mt-6">
               <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-                {warps.map((w) => (
-                  <div key={w.slug} className="group rounded-xl border border-white/10 bg-black/30 p-4 hover:shadow-lg transition-all duration-200 overflow-hidden">
+                  {warps.map((w) => (
+                  <div key={w.slug} className="group rounded-xl border border-white/10 bg-black/30 p-4 transition transform-gpu duration-300 ease-out hover:shadow-2xl hover:scale-105 hover:ring-2 hover:ring-sakura-pink/20 overflow-hidden">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
                         <span className="w-8 h-8 block image-rendering-pixelated">
@@ -64,8 +64,8 @@ export default function OwnershipSection() {
                         <p className="text-sm uppercase tracking-[0.18em] text-gray-300">{w.title}</p>
                       </div>
                     </div>
-                    <div className="mt-3 text-gray-300 max-h-0 overflow-hidden group-hover:max-h-[4.5rem] transition-[max-height] duration-350 ease-out">
-                      <p className="text-sm leading-5 max-w-full line-clamp-3 transform -translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">{w.desc}</p>
+                    <div className="mt-3 text-gray-300 max-h-0 overflow-hidden group-hover:max-h-[4.5rem] transition-[max-height] duration-300 ease-[cubic-bezier(.2,.8,.2,1)]">
+                      <p className="text-sm leading-5 max-w-full line-clamp-3 transform -translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-250 ease-out">{w.desc}</p>
                     </div>
                   </div>
                 ))}
