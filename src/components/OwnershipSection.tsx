@@ -26,10 +26,10 @@ export default function OwnershipSection() {
           >
             <div className="rounded-[2rem] border p-6 shadow-xl shadow-black/20 backdrop-blur-xl bg-black/40 border-white/10">
               <p className="text-sm uppercase tracking-[0.3em] text-gray-300">Owned player warps</p>
-              <div className="mt-6 overflow-x-auto">
-                <div className="flex gap-6 items-start w-max">
+              <div className="mt-6">
+                <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
                   {warps.map((w) => (
-                    <div key={w.slug} className="group min-w-[220px] rounded-xl border border-white/10 bg-black/30 p-4 hover:shadow-lg transition-all duration-200 overflow-hidden">
+                    <div key={w.slug} className="group rounded-xl border border-white/10 bg-black/30 p-4 hover:shadow-lg transition-all duration-200 overflow-hidden">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
                           <span className="w-8 h-8 block image-rendering-pixelated">
@@ -66,8 +66,8 @@ export default function OwnershipSection() {
                         </div>
                         <a href={`/player-warps/${w.slug}`} className="ml-4 text-sakura-pink/90 underline">view</a>
                       </div>
-                      <div className="mt-3 text-gray-300 max-h-0 overflow-hidden group-hover:max-h-40 transition-[max-height] duration-350 ease-out">
-                        <p className="text-sm transform -translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">{w.desc}</p>
+                      <div className="mt-3 text-gray-300 max-h-0 overflow-hidden group-hover:max-h-[4.5rem] transition-[max-height] duration-350 ease-out">
+                        <p className="text-sm leading-5 max-w-full line-clamp-3 transform -translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">{w.desc}</p>
                       </div>
                     </div>
                   ))}
