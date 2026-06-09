@@ -26,8 +26,8 @@ export default function Hero() {
 
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}>
           <div className="mt-8 flex flex-wrap gap-4">
-            <a href="#builds" className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm text-white transition hover:bg-white/10">Explore Builds</a>
-            <a href="#contact" className="inline-flex items-center justify-center rounded-full bg-lantern px-6 py-3 text-sm font-semibold text-black transition hover:brightness-110">Contact Me</a>
+            <a href="/index.html#builds" className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm text-white transition hover:bg-white/10">Explore Builds</a>
+            <a href="/index.html#contact" className="inline-flex items-center justify-center rounded-full bg-lantern px-6 py-3 text-sm font-semibold text-black transition hover:brightness-110">Contact Me</a>
           </div>
         </motion.div>
       </div>
