@@ -1,12 +1,11 @@
 import { motion } from 'framer-motion'
 
 const items = [
-  { title: 'Owned Properties', subtitle: 'Private estates, bases, and key plots', color: 'bg-sakura-pink/10 border-sakura-pink/20' },
-  { title: 'Trading Hubs', subtitle: 'Market stalls, spawn shops, and community districts', color: 'bg-lantern/10 border-lantern/20' },
-  { title: 'Farms', subtitle: 'Efficient auto farms, villager systems, and storage sorters', color: 'bg-emerald/10 border-emerald/20' },
-  { title: 'Villages', subtitle: 'Collaborative towns, starter villages, and seasonal builds', color: 'bg-blossom-pink/10 border-blossom-pink/20' },
-  { title: 'Storage Districts', subtitle: 'Organized hubs built for smooth player flow', color: 'bg-charcoal/70 border-white/10' },
-  { title: 'Seasonal Events', subtitle: 'Festive installations, Sakura festivals, and server showcases', color: 'bg-[#514b66]/10 border-[#514b66]/20' }
+  {
+    title: 'Owned player warps',
+    subtitle: 'pw mihu-farm, pw mihu-rentals, pw mihu-shop, pw mihu-casino',
+    color: 'bg-sakura-pink/10 border-sakura-pink/20'
+  }
 ]
 
 export default function OwnershipSection() {
@@ -28,10 +27,16 @@ export default function OwnershipSection() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.45, delay: index * 0.08 }}
             >
-              <div className={`rounded-[2rem] border p-7 shadow-xl shadow-black/20 backdrop-blur-xl ${item.color} hover:-translate-y-1 transition-transform`}>
+              <div className={`rounded-[2rem] border p-7 shadow-xl shadow-black/20 backdrop-blur-xl ${item.color} hover:-translate-y-1 transition-transform h-full flex flex-col`}>
                 <p className="text-sm uppercase tracking-[0.3em] text-gray-300">{item.title}</p>
-                <h3 className="mt-3 text-2xl font-semibold text-white">{item.subtitle.split(',')[0]}</h3>
-                <p className="mt-4 text-gray-300">{item.subtitle}</p>
+                <h3 className="mt-3 text-2xl font-semibold text-white">Owned player warps</h3>
+                <div className="mt-4 text-gray-300 space-y-2 flex-1">
+                  <p>pw mihu-farm — <a className="text-sakura-pink/90 underline" href="/player-warps/mihu-farm">view</a></p>
+                  <p>pw mihu-rentals — <a className="text-sakura-pink/90 underline" href="/player-warps/mihu-rentals">view</a></p>
+                  <p>pw mihu-shop — <a className="text-sakura-pink/90 underline" href="/player-warps/mihu-shop">view</a></p>
+                  <p>pw mihu-casino — <a className="text-sakura-pink/90 underline" href="/player-warps/mihu-casino">view</a></p>
+                </div>
+                <div className="mt-4" />
               </div>
             </motion.div>
           ))}

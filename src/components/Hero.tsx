@@ -20,7 +20,7 @@ export default function Hero() {
 
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
-            Professional Minecraft Builds Crafted for BlossomCraft SMP — creating immersive worlds, cinematic landscapes, and unforgettable SMP experiences.
+            I build premium Minecraft projects for BlossomCraft SMP — practical, polished, player-ready.
           </p>
         </motion.div>
 

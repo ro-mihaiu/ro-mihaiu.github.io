@@ -13,7 +13,7 @@ export default function Home() {
     <>
       <Head>
         <title>MIHAITZUUU BUILDS — BlossomCraft SMP</title>
-        <meta name="description" content="Professional Minecraft builds crafted for BlossomCraft SMP" />
+        <meta name="description" content="I build premium Minecraft projects for BlossomCraft SMP" />
       </Head>
       <div className="relative min-h-screen overflow-hidden bg-deep-black text-white">
         <SakuraEffect />

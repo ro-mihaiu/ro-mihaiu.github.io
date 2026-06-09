@@ -8,10 +8,9 @@ const stats = [
 ]
 
 const highlights = [
-  'Elite SMP architect with BlossomCraft experience',
-  'Massive fantasy castles, cozy starter homes, and market districts',
-  'Automated farms, redstone systems, and optimized builds',
-  'Cinematic landscaping with sakura gardens, rivers, and floating islands'
+  'Fast builder — usually under a week, depends on size',
+  'Buyer-based offers, with some exceptions',
+  "I won't refuse build offers"
 ]
 
 export default function AboutSection() {
@@ -23,7 +22,7 @@ export default function AboutSection() {
           <p className="text-sm uppercase tracking-[0.3em] text-sakura-pink/80">About Mihaitzuuu</p>
           <h2 className="mt-4 text-4xl md:text-5xl font-black text-white">Professional Minecraft builder, architect, and SMP creator.</h2>
           <p className="mt-4 text-gray-300 leading-8">
-            Mihaitzuuu crafts premium BlossomCraft SMP environments with cinematic detail, functional automation, and rich community-ready spaces. From lantern-lit starter cottages to kingdom-scale castles, every project blends cozy medieval ambience with luxury fantasy design.
+            I build premium BlossomCraft SMP projects with practical automation and player-ready design.
           </p>
         </div>
 
@@ -45,9 +44,9 @@ export default function AboutSection() {
             ))}
           </div>
 
-          <div className="rounded-[2rem] border border-white/10 bg-black/40 p-8 shadow-lg shadow-black/40 backdrop-blur-xl">
-            <h3 className="text-2xl font-semibold text-white">Why BlossomCraft chooses Mihaitzuuu</h3>
-            <ul className="mt-6 space-y-4 text-gray-300">
+          <div className="rounded-[2rem] border border-white/10 bg-black/40 p-8 shadow-lg shadow-black/40 backdrop-blur-xl h-full flex flex-col">
+            <h3 className="text-2xl font-semibold text-white">why should you choose me?</h3>
+            <ul className="mt-6 space-y-4 text-gray-300 flex-1">
               {highlights.map((item) => (
                 <li key={item} className="flex gap-3">
                   <span className="mt-1 inline-flex h-2.5 w-2.5 rounded-full bg-emerald" />
@@ -55,6 +54,7 @@ export default function AboutSection() {
                 </li>
               ))}
             </ul>
+            <div className="mt-6" />
           </div>
         </div>
       </div>

@@ -9,7 +9,7 @@ export default function Footer() {
             <p className="text-sm uppercase tracking-[0.3em] text-sakura-pink/80">BlossomCraft Portfolio</p>
             <h2 className="mt-4 text-3xl font-black text-white">Big ideas. Beautiful builds. BlossomCraft.</h2>
             <p className="mt-4 max-w-xl text-gray-300 leading-7">
-              A cinematic portfolio page for Mihaitzuuu, built to show server projects, community life, and premium Minecraft architecture.
+              I showcase server projects, community builds, and premium Minecraft work.
             </p>
           </div>
 
@@ -27,7 +27,7 @@ export default function Footer() {
               <h3 className="text-sm uppercase tracking-[0.3em] text-blossom-pink/80">Connect</h3>
               <ul className="mt-5 space-y-3 text-gray-300">
                 <li><a href="https://github.com/ro-mihaiu" target="_blank" rel="noopener noreferrer" className="hover:text-white">GitHub</a></li>
-                <li><a href="https://discord.gg" target="_blank" rel="noopener noreferrer" className="hover:text-white">Discord</a></li>
+                <li><a href="https://discord.com/users/1027052856697684099" target="_blank" rel="noopener noreferrer" className="hover:text-white">Discord</a></li>
               </ul>
             </div>
           </div>

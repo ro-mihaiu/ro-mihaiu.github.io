@@ -6,9 +6,9 @@ export default function ContactSection() {
           <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] items-center">
             <div>
               <p className="text-sm uppercase tracking-[0.3em] text-sakura-pink/80">Let’s collaborate</p>
-              <h2 className="mt-4 text-4xl font-black text-white">Ready to build your next BlossomCraft legacy?</h2>
+              <h2 className="mt-4 text-4xl font-black text-white">Ready to build your next BlossomCraft project?</h2>
               <p className="mt-4 text-gray-300 leading-8">
-                Contact Mihaitzuuu for cinematic build commissions, Redstone automation, community projects, and server design.
+                I take commissions for builds, Redstone, and server design.
               </p>
             </div>
             <div className="space-y-4 rounded-3xl border border-white/10 bg-black/50 p-8">
