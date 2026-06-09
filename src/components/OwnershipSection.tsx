@@ -13,7 +13,7 @@ export default function OwnershipSection() {
       <div className="absolute inset-x-0 top-0 h-48 bg-[radial-gradient(circle_at_top,_rgba(255,138,194,0.12),_transparent_40%)]" />
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="mb-12 max-w-3xl">
-          <p className="text-sm uppercase tracking-[0.3em] text-sakura-pink/80">Empire dashboard</p>
+          <p className="text-sm uppercase tracking-[0.3em] text-sakura-pink/80">Dashboard</p>
           <h2 className="mt-4 text-4xl md:text-5xl font-black text-white">Owned properties, occupations, and flagship projects</h2>
         </div>
 
@@ -64,7 +64,6 @@ export default function OwnershipSection() {
                           </span>
                           <p className="text-sm uppercase tracking-[0.18em] text-gray-300">{w.title}</p>
                         </div>
-                        <a href={`/player-warps/${w.slug}`} className="ml-4 text-sakura-pink/90 underline">view</a>
                       </div>
                       <div className="mt-3 text-gray-300 max-h-0 overflow-hidden group-hover:max-h-[4.5rem] transition-[max-height] duration-350 ease-out">
                         <p className="text-sm leading-5 max-w-full line-clamp-3 transform -translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">{w.desc}</p>
