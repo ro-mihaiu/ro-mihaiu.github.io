@@ -8,9 +8,10 @@ const stats = [
 ]
 
 const highlights = [
-  'Fast builder — usually under a week, depends on size',
+  'Fast builder - usually under a week, depends on size',
   'Buyer-based offers, with some exceptions',
-  "I won't refuse build offers"
+  "I don't refuse build offers very often",
+  'I can build in any style, but prefer practical, polished designs',
 ]
 
 export default function AboutSection() {
@@ -45,7 +46,7 @@ export default function AboutSection() {
           </div>
 
           <div className="rounded-[2rem] border border-white/10 bg-black/40 p-8 shadow-lg shadow-black/40 backdrop-blur-xl h-full flex flex-col">
-            <h3 className="text-2xl font-semibold text-white">why should you choose me?</h3>
+            <h3 className="text-2xl font-semibold text-white">Why should YOU choose me?</h3>
             <ul className="mt-6 space-y-4 text-gray-300 flex-1">
               {highlights.map((item) => (
                 <li key={item} className="flex gap-3">
