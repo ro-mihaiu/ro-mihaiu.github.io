@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion'
 
 const stats = [
-  { label: 'Hours Played', value: '1.2K+' },
-  { label: 'Builds Completed', value: '68' },
-  { label: 'Farms Designed', value: '24' },
-  { label: 'Worlds Transformed', value: '12' }
+  { label: 'Hours Played', value: '2.2K+' },
+  { label: 'Builds Completed', value: '73' },
+  { label: 'Farms Designed', value: '32' },
+  { label: 'Worlds Transformed', value: '4' }
 ]
 
 const highlights = [
@@ -20,10 +20,10 @@ export default function AboutSection() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,138,194,0.08),_transparent_35%)]" />
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="mb-12 max-w-3xl">
-          <p className="text-sm uppercase tracking-[0.3em] text-sakura-pink/80">About Mihaitzuuu</p>
+          <p className="text-sm uppercase tracking-[0.3em] text-sakura-pink/80">About Me</p>
           <h2 className="mt-4 text-4xl md:text-5xl font-black text-white">Professional Minecraft builder, architect, and SMP creator.</h2>
           <p className="mt-4 text-gray-300 leading-8">
-            I build premium BlossomCraft SMP projects with practical automation and player-ready design.
+            I build premium builds or farms with practical automation and player-ready design.
           </p>
         </div>
 

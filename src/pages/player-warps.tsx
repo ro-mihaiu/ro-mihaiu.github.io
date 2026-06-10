@@ -3,11 +3,19 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
 const warps = [
-  { id: 'mihu-farm', name: 'mihu-farm', status: 'active' },
-  { id: 'mihu-rentals', name: 'mihu-rentals', status: 'active' },
-  { id: 'mihu-shop', name: 'mihu-shop', status: 'launching in July' },
-  { id: 'mihu-casino', name: 'mihu-casino', status: 'launching in July' }
+  { id: 'mihu-farm', name: 'mihu-farm', status: 'active', desc: 'Mega farm for crops and resources - maintained regularly.' },
+  { id: 'mihu-rentals', name: 'mihu-rentals', status: 'active', desc: 'Item rentals, mostly tools and blocks - follow posted rules.' },
+  { id: 'mihu-shop', name: 'mihu-shop', status: 'upcoming', desc: 'Community shop + Blossom Items - opening soon with trades.' },
+  { id: 'mihu-casino', name: 'mihu-casino', status: 'upcoming', desc: 'Mini-games, events, giveaways - fair play required.' }
 ]
+
+function statusClasses(status: string) {
+  const s = (status || '').toLowerCase()
+  if (s.includes('active')) return 'bg-emerald-400 text-black'
+  if (s.includes('locked')) return 'bg-red-400 text-black'
+  if (s.includes('upcoming') || s.includes('launch')) return 'bg-yellow-300 text-black'
+  return 'bg-gray-500 text-white'
+}
 
 export default function PlayerWarps() {
   return (
@@ -26,10 +34,15 @@ export default function PlayerWarps() {
           <div className="grid gap-4 sm:grid-cols-2">
             {warps.map((w) => (
               <div key={w.id} className="rounded-2xl border border-white/10 bg-black/40 p-6">
-                <div className="flex items-center justify-between">
+                <div className="flex items-start justify-between">
                   <div>
-                    <h3 className="text-xl font-semibold">{w.name}</h3>
-                    <p className="text-sm text-gray-400">{w.status}</p>
+                    <div className="flex items-center">
+                      <h3 className="text-xl font-semibold">{w.name}</h3>
+                      <span className={`ml-3 px-2 py-1 rounded-md text-sm font-medium ${statusClasses(w.status)}`}>
+                        {w.status}
+                      </span>
+                    </div>
+                    <p className="text-sm text-gray-300 mt-2">{w.desc}</p>
                   </div>
                   <button
                     onClick={() => navigator.clipboard?.writeText(`/pw ${w.name}`)}

@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>MIHAITZUUU BUILDS — BlossomCraft SMP</title>
+        <title>Mihaitzuuu's Builds — BlossomCraft SMP</title>
         <meta name="description" content="I build premium Minecraft projects for BlossomCraft SMP" />
       </Head>
       <div className="relative min-h-screen overflow-hidden bg-deep-black text-white">

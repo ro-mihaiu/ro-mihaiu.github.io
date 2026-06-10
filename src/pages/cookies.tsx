@@ -11,7 +11,7 @@ export default function CookiesPolicy() {
         </p>
         <div className="mt-10 space-y-6 text-gray-300">
           <section>
-            <h2 className="text-2xl font-semibold text-white">What cookies are used?</h2>
+            <h2 className="text-2xl font-semibold text-white">What cookies are being used?</h2>
             <p className="mt-3">Essential cookies may be used to keep the site functional. Optional cookies may be used for performance and preference storage.</p>
           </section>
           <section>

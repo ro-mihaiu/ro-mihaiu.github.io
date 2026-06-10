@@ -14,7 +14,7 @@ export default function OwnershipSection() {
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="mb-12 max-w-3xl">
           <p className="text-sm uppercase tracking-[0.3em] text-sakura-pink/80">Dashboard</p>
-          <h2 className="mt-4 text-4xl md:text-5xl font-black text-white">Owned properties, occupations, and flagship projects</h2>
+          <h2 className="mt-4 text-4xl md:text-5xl font-black text-white">Owned player warps</h2>
         </div>
 
         <div className="">
@@ -24,10 +24,9 @@ export default function OwnershipSection() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.45 }}
           >
-            <p className="text-sm uppercase tracking-[0.3em] text-gray-300">Owned player warps</p>
             <div className="mt-6">
               <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-                  {warps.map((w) => (
+                {warps.map((w) => (
                   <div key={w.slug} className="group rounded-xl border border-white/10 bg-black/30 p-4 transition transform-gpu duration-300 ease-out hover:shadow-2xl hover:scale-105 hover:ring-2 hover:ring-sakura-pink/20 overflow-hidden">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
