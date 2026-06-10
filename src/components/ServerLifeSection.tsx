@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 const lifeItems = [
   {
     title: 'Server events & markets',
-    description: 'I'm doing regular giveaways, or player events (soon).'
+    description: "I'm doing regular giveaways, or player events (soon)."
   },
   {
     title: 'Collaborative districts',
