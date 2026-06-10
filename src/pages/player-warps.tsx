@@ -1,20 +1,24 @@
 import Head from 'next/head'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-
-const warps = [
-  { id: 'mihu-farm', name: 'mihu-farm', status: 'active', desc: 'Mega farm for crops and resources - maintained regularly.' },
-  { id: 'mihu-rentals', name: 'mihu-rentals', status: 'active', desc: 'Item rentals, mostly tools and blocks - follow posted rules.' },
-  { id: 'mihu-shop', name: 'mihu-shop', status: 'upcoming', desc: 'Community shop + Blossom Items - opening soon with trades.' },
-  { id: 'mihu-casino', name: 'mihu-casino', status: 'upcoming', desc: 'Mini-games, events, giveaways - fair play required.' }
-]
+import Link from 'next/link'
+import { warps } from '../data/warps'
 
 function statusClasses(status: string) {
   const s = (status || '').toLowerCase()
-  if (s.includes('active')) return 'bg-emerald-400 text-black'
-  if (s.includes('locked')) return 'bg-red-400 text-black'
-  if (s.includes('upcoming') || s.includes('launch')) return 'bg-yellow-300 text-black'
-  return 'bg-gray-500 text-white'
+  // dark pill with colored border and text to match design
+  if (s.includes('active')) return 'ml-3 px-3 py-1 rounded-full text-sm font-semibold bg-black/60 border border-emerald-500/30 text-emerald-300'
+  if (s.includes('locked')) return 'ml-3 px-3 py-1 rounded-full text-sm font-semibold bg-black/60 border border-red-500/30 text-red-300'
+  if (s.includes('upcoming') || s.includes('launch')) return 'ml-3 px-3 py-1 rounded-full text-sm font-semibold bg-black/60 border border-yellow-400/30 text-yellow-300'
+  return 'ml-3 px-3 py-1 rounded-full text-sm font-semibold bg-black/60 border border-white/10 text-gray-300'
+}
+
+function statusLabel(status: string) {
+  const s = (status || '').toLowerCase()
+  if (s.includes('active')) return 'Active'
+  if (s.includes('locked')) return 'Locked'
+  if (s.includes('upcoming') || s.includes('launch')) return 'Upcoming'
+  return status
 }
 
 export default function PlayerWarps() {
@@ -38,9 +42,14 @@ export default function PlayerWarps() {
                   <div>
                     <div className="flex items-center">
                       <h3 className="text-xl font-semibold">{w.name}</h3>
-                      <span className={`ml-3 px-2 py-1 rounded-md text-sm font-medium ${statusClasses(w.status)}`}>
-                        {w.status}
+                      <span className={statusClasses(w.status)}>
+                        {statusLabel(w.status)}
                       </span>
+                      <Link href={`/player-warps/${w.id}`} className="ml-2">
+                        <span className="ml-2 px-3 py-1 rounded-full text-sm font-semibold bg-gradient-to-r from-sakura-pink/80 to-violet-500/80 text-white">
+                          Guide
+                        </span>
+                      </Link>
                     </div>
                     <p className="text-sm text-gray-300 mt-2">{w.desc}</p>
                   </div>
