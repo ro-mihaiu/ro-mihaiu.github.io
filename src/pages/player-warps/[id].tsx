@@ -12,6 +12,7 @@ type Props = {
     status: string
     desc: string
     guide?: string
+    items?: { name: string; icon?: string }[]
   }
 }
 
@@ -39,14 +40,36 @@ export default function WarpPage({ warp }: Props) {
 
             <div className="mt-4">
               <h3 className="text-lg font-semibold text-white">Guide</h3>
-              <div className="mt-2 rounded-md bg-black/30 p-4 text-gray-300">
+              <div className="mt-2 rounded-md bg-black/30 p-4 text-gray-300 whitespace-pre-line">
                 {warp.guide ? (
-                  <p className="leading-6">{warp.guide}</p>
+                  <div className="leading-6">{warp.guide}</div>
                 ) : (
                   <p className="text-sm">No guide available yet.</p>
                 )}
               </div>
             </div>
+            {warp.items && warp.items.length > 0 && (
+              <div className="mt-6">
+                <h3 className="text-lg font-semibold text-white">Items</h3>
+                <div className="mt-3 grid grid-cols-4 sm:grid-cols-6 gap-3">
+                  {warp.items.map((it) => (
+                    <div key={it.name} className="flex flex-col items-center text-center text-sm text-gray-300">
+                      {it.icon ? (
+                        // If user adds an icon URL, it will be displayed here
+                        // Use full URLs like https://blossom.atn.gg/path/to/icon.png
+                        <img src={it.icon} alt={it.name} className="w-10 h-10 rounded-md object-cover" />
+                      ) : (
+                        <div className="w-10 h-10 rounded-md bg-gradient-to-br from-sakura-pink/70 to-violet-600 flex items-center justify-center text-white font-semibold text-xs">
+                          {it.name.split(' ').map((n) => n[0]).slice(0, 2).join('')}
+                        </div>
+                      )}
+                      <span className="mt-1">{it.name}</span>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-xs text-gray-400 mt-2">To add real icons, edit [src/data/warps.ts](src/data/warps.ts#L1-L200) and set each item&apos;s <span className="font-mono">icon</span> to a full URL (for example: <span className="font-mono">https://blossom.atn.gg/icons/enchant.png</span>).</p>
+              </div>
+            )}
           </div>
         </main>
         <Footer />

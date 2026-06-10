@@ -38,7 +38,7 @@ export default function PlayerWarps() {
           <div className="grid gap-4 sm:grid-cols-2">
             {warps.map((w) => (
               <div key={w.id} className="rounded-2xl border border-white/10 bg-black/40 p-6">
-                <div className="flex items-start justify-between">
+                <div className="flex items-center justify-between">
                   <div>
                     <div className="flex items-center">
                       <h3 className="text-xl font-semibold">{w.name}</h3>
@@ -55,7 +55,8 @@ export default function PlayerWarps() {
                   </div>
                   <button
                     onClick={() => navigator.clipboard?.writeText(`/pw ${w.name}`)}
-                    className="ml-4 rounded-full bg-sakura-pink/80 px-4 py-2 text-black font-medium"
+                    className="ml-4 rounded-full bg-sakura-pink/80 px-3 py-1 text-black font-medium text-sm"
+                    aria-label={`Copy warp ${w.name}`}
                   >
                     Copy Warp
                   </button>
