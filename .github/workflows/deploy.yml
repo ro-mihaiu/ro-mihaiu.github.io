@@ -33,7 +33,7 @@ jobs:
         run: npm ci
 
       - name: Build Next.js app
-        run: npm run build
+        run: npm run build:export
 
       - name: Upload artifact to GitHub Pages
         uses: actions/upload-pages-artifact@v3
