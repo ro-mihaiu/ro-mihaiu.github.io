@@ -38,14 +38,14 @@ export default function PlayerWarps() {
           <div className="grid gap-4 sm:grid-cols-2">
             {warps.map((w) => (
               <div key={w.id} className="rounded-2xl border border-white/10 bg-black/40 p-6">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <div className="flex items-center">
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex-1">
+                    <div className="flex items-center flex-wrap gap-2">
                       <h3 className="text-xl font-semibold">{w.name}</h3>
                       <span className={statusClasses(w.status)}>
                         {statusLabel(w.status)}
                       </span>
-                      <Link href={`/player-warps/${w.id}`} className="ml-2">
+                      <Link href={`/player-warps/${w.id}`} className="ml-0">
                         <span className="ml-2 px-3 py-1 rounded-full text-sm font-semibold bg-gradient-to-r from-sakura-pink/80 to-violet-500/80 text-white">
                           Guide
                         </span>
@@ -53,13 +53,15 @@ export default function PlayerWarps() {
                     </div>
                     <p className="text-sm text-gray-300 mt-2">{w.desc}</p>
                   </div>
-                  <button
-                    onClick={() => navigator.clipboard?.writeText(`/pw ${w.name}`)}
-                    className="ml-4 rounded-full bg-sakura-pink/80 px-3 py-1 text-black font-medium text-sm"
-                    aria-label={`Copy warp ${w.name}`}
-                  >
-                    Copy Warp
-                  </button>
+                  <div className="flex-shrink-0">
+                    <button
+                      onClick={() => navigator.clipboard?.writeText(`/pw ${w.name}`)}
+                      className="rounded-full bg-sakura-pink/80 px-4 py-2 text-black font-medium text-sm self-center"
+                      aria-label={`Copy warp ${w.name}`}
+                    >
+                      Copy Warp
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}

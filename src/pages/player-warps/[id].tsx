@@ -4,6 +4,8 @@ import Footer from '../../components/Footer'
 import Link from 'next/link'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import warps, { getWarpById } from '../../data/warps'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 
 type Props = {
   warp: {
@@ -40,9 +42,11 @@ export default function WarpPage({ warp }: Props) {
 
             <div className="mt-4">
               <h3 className="text-lg font-semibold text-white">Guide</h3>
-              <div className="mt-2 rounded-md bg-black/30 p-4 text-gray-300 whitespace-pre-line">
+              <div className="mt-2 rounded-md bg-black/30 p-4 text-gray-300">
                 {warp.guide ? (
-                  <div className="leading-6">{warp.guide}</div>
+                  <div className="prose prose-invert max-w-none prose-sm">
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>{warp.guide}</ReactMarkdown>
+                  </div>
                 ) : (
                   <p className="text-sm">No guide available yet.</p>
                 )}
