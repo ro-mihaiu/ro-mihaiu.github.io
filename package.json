@@ -18,6 +18,7 @@
     "next": "^13.4.10",
     "react-markdown": "^8.0.5",
     "remark-gfm": "^3.0.1",
+    "marked": "^5.1.1",
     "next-seo": "^5.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
