@@ -31,16 +31,39 @@ export const warps: Warp[] = [
     ],
     rules: [
       {
-        text: "Any tool you took from the Player Warp must be returned",
+        text: "Any tool you took from the Player Warp must be returned. Don't log off with the items.",
         note: "Unless you have serious reasons for keeping it"
       },
       {
-        text: "Any donations are welcome; you will be placed on a wall of fame",
-        note: "You will need at least Ranger rank to be verified"
+        text: "In case you don't need the goods, they can be donated on the 9th floor at pw mihu-farm.",
+        note: "Goods, such as carrots/potatos/wheat/seeds/etc"
       },
       {
-        text: "Don't break anything except the crops and always replant them",
-        note: "Make sure to use a hoe/item that auto-replants; Demeters Touch is available in the basement."
+        text: "Being a discord member of this server is a must, in order to keep track of who is trusted",
+        note: "Anyone from this server can promote it to their friends, and may get a reward"
+      },
+      {
+        text: "Don't break anything except the crops and after that replant them always",
+        note: "Make sure to use a hoe/item that auto-replants, since it will make your work easier (I have put a Demeters Touch in the basement)"
+      },
+      {
+        text: "Any suggestions are welcome",
+        note: "For auto-farms / manual farms / design, make them at plans-suggestions"
+      },
+      {
+        text: "Any donations are welcome; you will be placed on a wall of fame"
+      },
+      {
+        text: "You will need at least Ranger rank to be verified",
+        note: "Mostly because I don't want this farm to be griefed"
+      },
+      {
+        text: "When renting/borrowing an item you must put your head in the barrel",
+        note: "Do /hdb search (user) to get yourself your head"
+      },
+      {
+        text: "Copying my builds/property in any way will get you reported to BlossomCraft staff",
+        note: "Discord server's template / rules are included"
       }
     ]
   },

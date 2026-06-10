@@ -5,8 +5,8 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/I6EDrbB0dRtlfeHuLg_19/_buildManifest.js",
-    "static/I6EDrbB0dRtlfeHuLg_19/_ssgManifest.js"
+    "static/CHJi1Pxg04P1nsshsYSjg/_buildManifest.js",
+    "static/CHJi1Pxg04P1nsshsYSjg/_ssgManifest.js"
   ],
   "rootMainFiles": [],
   "pages": {
@@ -29,7 +29,7 @@
       "static/chunks/webpack-fd8027ecb5121007.js",
       "static/chunks/framework-21a7ded87e45f3d9.js",
       "static/chunks/main-347c95cdba2253bb.js",
-      "static/css/ba98ad949d84e661.css",
+      "static/css/bb28ee7a79875cc0.css",
       "static/chunks/pages/_app-39c1abd0d870f45d.js"
     ],
     "/_error": [
@@ -64,7 +64,7 @@
       "static/chunks/framework-21a7ded87e45f3d9.js",
       "static/chunks/main-347c95cdba2253bb.js",
       "static/chunks/664-0356555cfd50fb3d.js",
-      "static/chunks/pages/player-warps-f4f0126da36b8e1c.js"
+      "static/chunks/pages/player-warps-cb2ebe0230f5e145.js"
     ],
     "/player-warps/[id]": [
       "static/chunks/webpack-fd8027ecb5121007.js",
@@ -72,7 +72,7 @@
       "static/chunks/main-347c95cdba2253bb.js",
       "static/chunks/664-0356555cfd50fb3d.js",
       "static/chunks/758-475ff330d87f4a7e.js",
-      "static/chunks/pages/player-warps/[id]-702f030748584c9b.js"
+      "static/chunks/pages/player-warps/[id]-1f158b025f8fc7c7.js"
     ],
     "/tos": [
       "static/chunks/webpack-fd8027ecb5121007.js",

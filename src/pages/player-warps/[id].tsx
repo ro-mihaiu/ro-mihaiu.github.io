@@ -50,7 +50,6 @@ export default function WarpPage({ warp }: Props) {
                     <GuideItem key={it.name} name={it.name} icon={it.icon} />
                   ))}
                 </div>
-                <p className="text-xs text-gray-400 mt-2">To add real icons, edit <span className="font-mono">src/data/warps.ts</span> and set each item&apos;s <span className="font-mono">icon</span> to a full or local URL (for example: <span className="font-mono">/assets/items/enchanted-decree.png</span>).</p>
               </div>
             )}
 
