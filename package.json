@@ -1,0 +1,43 @@
+{
+  "name": "mihaitzuuu-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "export": "next export",
+    "build:export": "next build && next export",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@react-three/drei": "^9.58.0",
+    "@react-three/fiber": "^8.12.0",
+    "clsx": "^1.2.1",
+    "framer-motion": "^10.12.16",
+    "marked": "^5.1.1",
+    "next": "^16.2.9",
+    "next-seo": "^5.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-markdown": "^8.0.5",
+    "remark-gfm": "^3.0.1",
+    "swr": "^2.2.0",
+    "tailwindcss": "^3.4.8",
+    "three": "^0.159.0"
+  },
+  "devDependencies": {
+    "@types/node": "25.9.1",
+    "@types/react": "18.2.21",
+    "@types/react-dom": "18.2.7",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.48.0",
+    "eslint-config-next": "^13.4.10",
+    "postcss": "^8.4.24",
+    "typescript": "^5.2.2"
+  },
+  "allowScripts": {
+    "sharp@0.34.5": true,
+    "unrs-resolver@1.12.2": true
+  }
+}

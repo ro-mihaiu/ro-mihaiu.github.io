@@ -1,0 +1,92 @@
+{
+  "version": 4,
+  "routes": {
+    "/player-warps/mihu-casino": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/player-warps/[id]",
+      "dataRoute": "/_next/data/B-QOkvJtHeqwog6xLuZKx/player-warps/mihu-casino.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/player-warps/mihu-farm": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/player-warps/[id]",
+      "dataRoute": "/_next/data/B-QOkvJtHeqwog6xLuZKx/player-warps/mihu-farm.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/player-warps/mihu-money": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/player-warps/[id]",
+      "dataRoute": "/_next/data/B-QOkvJtHeqwog6xLuZKx/player-warps/mihu-money.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/player-warps/mihu-rentals": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/player-warps/[id]",
+      "dataRoute": "/_next/data/B-QOkvJtHeqwog6xLuZKx/player-warps/mihu-rentals.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/player-warps/mihu-shop": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/player-warps/[id]",
+      "dataRoute": "/_next/data/B-QOkvJtHeqwog6xLuZKx/player-warps/mihu-shop.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    }
+  },
+  "dynamicRoutes": {
+    "/player-warps/[id]": {
+      "routeRegex": "^/player\\-warps/([^/]+?)(?:/)?$",
+      "dataRoute": "/_next/data/B-QOkvJtHeqwog6xLuZKx/player-warps/[id].json",
+      "fallback": false,
+      "dataRouteRegex": "^/_next/data/B\\-QOkvJtHeqwog6xLuZKx/player\\-warps/([^/]+?)\\.json$",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    }
+  },
+  "notFoundRoutes": [],
+  "preview": {
+    "previewModeId": "b3f1390eb995bbbe9bf721e0d0aaf014",
+    "previewModeSigningKey": "c8972c622154190c2cc976bfeed1dd23b9076c8f27428f4393294a8b9a297a91",
+    "previewModeEncryptionKey": "b64388ab3df91aa37d2bf3b76baf0c10bd39017b17be88e61b3233432ce757ca"
+  }
+}

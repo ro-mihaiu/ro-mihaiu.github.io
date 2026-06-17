@@ -1,0 +1,85 @@
+globalThis.__BUILD_MANIFEST = {
+  "pages": {
+    "/": [
+      "static/chunks/0u3jge-hyk-cy.js",
+      "static/chunks/241i65icsto-y.js",
+      "static/chunks/01j3zs5w2o9a6.js",
+      "static/chunks/3xlsa6-uajzgk.js",
+      "static/chunks/0ycw0gf8_6b40.js",
+      "static/chunks/turbopack-0nc4ewovheccr.js"
+    ],
+    "/404": [
+      "static/chunks/3scxw87n59qbp.js",
+      "static/chunks/241i65icsto-y.js",
+      "static/chunks/3xlsa6-uajzgk.js",
+      "static/chunks/0ycw0gf8_6b40.js",
+      "static/chunks/turbopack-0drdbv0bovdl9.js"
+    ],
+    "/_app": [
+      "static/chunks/2m-la1rxv-yhb.js",
+      "static/chunks/241i65icsto-y.js",
+      "static/chunks/0ycw0gf8_6b40.js",
+      "static/chunks/3xlsa6-uajzgk.js",
+      "static/chunks/1aj5cfcszyam3.css",
+      "static/chunks/turbopack-3fo805rbcgpy1.js"
+    ],
+    "/_error": [
+      "static/chunks/2wfdv0sl9tbjq.js",
+      "static/chunks/241i65icsto-y.js",
+      "static/chunks/3xlsa6-uajzgk.js",
+      "static/chunks/0ycw0gf8_6b40.js",
+      "static/chunks/turbopack-23pha7w7zg5d6.js"
+    ],
+    "/builds": [
+      "static/chunks/2btcw2cpz8v5z.js",
+      "static/chunks/241i65icsto-y.js",
+      "static/chunks/0ycw0gf8_6b40.js",
+      "static/chunks/3xlsa6-uajzgk.js",
+      "static/chunks/turbopack-0q3m5ho4r6038.js"
+    ],
+    "/builds/[slug]": [
+      "static/chunks/06ub_b4s89plr.js",
+      "static/chunks/241i65icsto-y.js",
+      "static/chunks/3xlsa6-uajzgk.js",
+      "static/chunks/0ycw0gf8_6b40.js",
+      "static/chunks/turbopack-2nhaui-x9j7gu.js"
+    ],
+    "/cookies": [
+      "static/chunks/2ikgbaydmxkpo.js",
+      "static/chunks/241i65icsto-y.js",
+      "static/chunks/3xlsa6-uajzgk.js",
+      "static/chunks/0ycw0gf8_6b40.js",
+      "static/chunks/turbopack-3s2fk2ti9g4eo.js"
+    ],
+    "/player-warps": [
+      "static/chunks/1y0w3chy14wrm.js",
+      "static/chunks/241i65icsto-y.js",
+      "static/chunks/3xlsa6-uajzgk.js",
+      "static/chunks/0ycw0gf8_6b40.js",
+      "static/chunks/turbopack-0g0c3shbly16a.js"
+    ],
+    "/player-warps/[id]": [
+      "static/chunks/0u3jge-hyk-cy.js",
+      "static/chunks/241i65icsto-y.js",
+      "static/chunks/3xlsa6-uajzgk.js",
+      "static/chunks/0ycw0gf8_6b40.js",
+      "static/chunks/0lnhaub8iqeix.js",
+      "static/chunks/turbopack-0bi1qa0woshdu.js"
+    ],
+    "/tos": [
+      "static/chunks/3mecbx5bavvx4.js",
+      "static/chunks/241i65icsto-y.js",
+      "static/chunks/3xlsa6-uajzgk.js",
+      "static/chunks/0ycw0gf8_6b40.js",
+      "static/chunks/turbopack-2e7ille5vg7lx.js"
+    ]
+  },
+  "devFiles": [],
+  "polyfillFiles": [],
+  "lowPriorityFiles": [
+    "static/B-QOkvJtHeqwog6xLuZKx/_buildManifest.js",
+    "static/B-QOkvJtHeqwog6xLuZKx/_ssgManifest.js",
+    "static/B-QOkvJtHeqwog6xLuZKx/_clientMiddlewareManifest.js"
+  ],
+  "rootMainFiles": []
+};
