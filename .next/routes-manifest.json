@@ -97,8 +97,8 @@
       "routeKeys": {
         "nxtPid": "nxtPid"
       },
-      "dataRouteRegex": "^/_next/data/B\\-QOkvJtHeqwog6xLuZKx/player\\-warps/([^/]+?)\\.json$",
-      "namedDataRouteRegex": "^/_next/data/B\\-QOkvJtHeqwog6xLuZKx/player\\-warps/(?<nxtPid>[^/]+?)\\.json$"
+      "dataRouteRegex": "^/_next/data/S24N9KjmNqNZiwjudfJsl/player\\-warps/([^/]+?)\\.json$",
+      "namedDataRouteRegex": "^/_next/data/S24N9KjmNqNZiwjudfJsl/player\\-warps/(?<nxtPid>[^/]+?)\\.json$"
     }
   ],
   "rsc": {
