@@ -23,9 +23,9 @@ export const builds: Build[] = [
     slug: 'br-cybergaming84-castle',
     title: "BR_CYBERGAMING84's Castle",
     short: 'A grand castle build with battlements and interior rooms.',
-    price: '3,000',
+    price: '200,000',
     time: '2 weeks',
-    builders: ['Mihu', 'Aki'],
+    builders: ['Mihaitzuuu', 'Luna2121654'],
     photos: [
       'https://via.placeholder.com/800x600?text=Castle+1',
       'https://via.placeholder.com/800x600?text=Castle+2',
@@ -36,14 +36,17 @@ export const builds: Build[] = [
     slug: 'gorb-tubs',
     title: 'GORB Tubs',
     short: 'Modular tub designs available in multiple variants.',
+    time: '5 hours',
+    builders: ['Mihaitzuuu'],
     photos: [
       'https://via.placeholder.com/800x600?text=Gorb+1',
       'https://via.placeholder.com/800x600?text=Gorb+2',
       'https://via.placeholder.com/800x600?text=Gorb+3'
     ],
     buyers: [
-      { name: 'BuyerA', price: '150', amount: 2, design: 'classic' },
-      { name: 'BuyerB', price: '200', amount: 1, design: 'deluxe' }
+      { name: 'EthanDeDurian', price: '800,000', amount: 4, design: '5h40m' },
+      { name: 'lil_wind_spirit', price: '200,000', amount: 1, design: '5h40m' },
+      { name: 'Numinouspie', price: '300,000', amount: 1, design: '5h40m' }
     ]
   },
   {
@@ -51,19 +54,19 @@ export const builds: Build[] = [
     title: 'Redstone Systems',
     short: 'Custom redstone automation solutions.',
     price: 'Varies per project',
-    time: 'Depends on scope',
-    builders: ['RedstonerOne', 'LogicLee'],
+    time: '< 2 hours',
+    builders: ['Mihaitzuuu'],
     photos: [
       'https://via.placeholder.com/800x600?text=Redstone+1',
       'https://via.placeholder.com/800x600?text=Redstone+2',
       'https://via.placeholder.com/800x600?text=Redstone+3'
     ],
-    extras: ['Sorting systems', 'Smithing systems']
+    extras: ['Sorting systems', 'Smelter systems', 'Redstone doors', 'Shulker Loader/Unloader', 'Autocrafting systems']
   },
   {
-    slug: 'example-hut',
-    title: 'Example Hut',
-    short: 'Small starter hut, quick turnaround.',
+    slug: 'mina-cathedral',
+    title: "Mina_03's Cathedral",
+    short: 'Big gothic cathedral with detailed exterior.',
     price: '250',
     time: '1 day',
     builders: ['SoloBuilder'],
