@@ -27,9 +27,9 @@ export const builds: Build[] = [
     time: '2 weeks',
     builders: ['Mihaitzuuu', 'Luna2121654'],
     photos: [
-      'https://via.placeholder.com/800x600?text=Castle+1',
-      'https://via.placeholder.com/800x600?text=Castle+2',
-      'https://via.placeholder.com/800x600?text=Castle+3'
+      '/assets/builds/br-cybergaming84-castle/br-cybergaming84-castle-1.png',
+      '/assets/builds/br-cybergaming84-castle/br-cybergaming84-castle-2.png',
+      '/assets/builds/br-cybergaming84-castle/br-cybergaming84-castle-3.png'
     ]
   },
   {
@@ -39,9 +39,9 @@ export const builds: Build[] = [
     time: '5 hours',
     builders: ['Mihaitzuuu'],
     photos: [
-      'https://via.placeholder.com/800x600?text=Gorb+1',
-      'https://via.placeholder.com/800x600?text=Gorb+2',
-      'https://via.placeholder.com/800x600?text=Gorb+3'
+      '/assets/builds/gorb-tubs/gorb-tubs-1.png',
+      '/assets/builds/gorb-tubs/gorb-tubs-2.png',
+      '/assets/builds/gorb-tubs/gorb-tubs-3.png'
     ],
     buyers: [
       { name: 'EthanDeDurian', price: '800,000', amount: 4, design: '5h40m' },
@@ -57,11 +57,22 @@ export const builds: Build[] = [
     time: '< 2 hours',
     builders: ['Mihaitzuuu'],
     photos: [
-      'https://via.placeholder.com/800x600?text=Redstone+1',
-      'https://via.placeholder.com/800x600?text=Redstone+2',
-      'https://via.placeholder.com/800x600?text=Redstone+3'
+      '/assets/builds/redstone-systems/redstone-systems-1.png',
+      '/assets/builds/redstone-systems/redstone-systems-2.png',
+      '/assets/builds/redstone-systems/redstone-systems-3.png'
     ],
     extras: ['Sorting systems', 'Smelter systems', 'Redstone doors', 'Shulker Loader/Unloader', 'Autocrafting systems']
+  },
+  {
+    slug: 'mapart',
+    title: 'Mapart',
+    short: 'Custom map art builds for decoration, collections, and server projects.',
+    builders: ['Mihaitzuuu', 'Beau_01'],
+    photos: [
+      '/assets/builds/mapart/mapart-1.png',
+      '/assets/builds/mapart/mapart-2.png',
+      '/assets/builds/mapart/mapart-3.png'
+    ]
   },
   {
     slug: 'mina-cathedral',
@@ -71,9 +82,9 @@ export const builds: Build[] = [
     time: '1 day',
     builders: ['SoloBuilder'],
     photos: [
-      'https://via.placeholder.com/800x600?text=Hut+1',
-      'https://via.placeholder.com/800x600?text=Hut+2',
-      'https://via.placeholder.com/800x600?text=Hut+3'
+      '/assets/builds/mina-cathedral/mina-cathedral-1.png',
+      '/assets/builds/mina-cathedral/mina-cathedral-2.png',
+      '/assets/builds/mina-cathedral/mina-cathedral-3.png'
     ]
   }
 ]

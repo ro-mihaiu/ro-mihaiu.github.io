@@ -4,7 +4,7 @@
     "/player-warps/mihu-casino": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/player-warps/[id]",
-      "dataRoute": "/_next/data/S24N9KjmNqNZiwjudfJsl/player-warps/mihu-casino.json",
+      "dataRoute": "/_next/data/VbbGlfnub8zNZVEGJbyAv/player-warps/mihu-casino.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -17,7 +17,7 @@
     "/player-warps/mihu-farm": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/player-warps/[id]",
-      "dataRoute": "/_next/data/S24N9KjmNqNZiwjudfJsl/player-warps/mihu-farm.json",
+      "dataRoute": "/_next/data/VbbGlfnub8zNZVEGJbyAv/player-warps/mihu-farm.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -30,7 +30,7 @@
     "/player-warps/mihu-money": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/player-warps/[id]",
-      "dataRoute": "/_next/data/S24N9KjmNqNZiwjudfJsl/player-warps/mihu-money.json",
+      "dataRoute": "/_next/data/VbbGlfnub8zNZVEGJbyAv/player-warps/mihu-money.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -43,7 +43,7 @@
     "/player-warps/mihu-rentals": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/player-warps/[id]",
-      "dataRoute": "/_next/data/S24N9KjmNqNZiwjudfJsl/player-warps/mihu-rentals.json",
+      "dataRoute": "/_next/data/VbbGlfnub8zNZVEGJbyAv/player-warps/mihu-rentals.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -56,7 +56,7 @@
     "/player-warps/mihu-shop": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/player-warps/[id]",
-      "dataRoute": "/_next/data/S24N9KjmNqNZiwjudfJsl/player-warps/mihu-shop.json",
+      "dataRoute": "/_next/data/VbbGlfnub8zNZVEGJbyAv/player-warps/mihu-shop.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -70,9 +70,9 @@
   "dynamicRoutes": {
     "/player-warps/[id]": {
       "routeRegex": "^/player\\-warps/([^/]+?)(?:/)?$",
-      "dataRoute": "/_next/data/S24N9KjmNqNZiwjudfJsl/player-warps/[id].json",
+      "dataRoute": "/_next/data/VbbGlfnub8zNZVEGJbyAv/player-warps/[id].json",
       "fallback": false,
-      "dataRouteRegex": "^/_next/data/S24N9KjmNqNZiwjudfJsl/player\\-warps/([^/]+?)\\.json$",
+      "dataRouteRegex": "^/_next/data/VbbGlfnub8zNZVEGJbyAv/player\\-warps/([^/]+?)\\.json$",
       "allowHeader": [
         "host",
         "x-matched-path",
