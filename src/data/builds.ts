@@ -23,7 +23,7 @@ export const builds: Build[] = [
     slug: 'br-cybergaming84-castle',
     title: "BR_CYBERGAMING84's Castle",
     short: 'A grand castle build with battlements and interior rooms.',
-    price: '200,000',
+    price: '200,000$',
     time: '2 weeks',
     builders: ['Mihaitzuuu', 'Luna2121654'],
     photos: [
@@ -36,17 +36,19 @@ export const builds: Build[] = [
     slug: 'gorb-tubs',
     title: 'GORB Tubs',
     short: 'Modular tub designs available in multiple variants.',
-    time: '5 hours',
+    time: '~4 hours',
     builders: ['Mihaitzuuu'],
     photos: [
       '/assets/builds/gorb-tubs/gorb-tubs-1.png',
       '/assets/builds/gorb-tubs/gorb-tubs-2.png',
       '/assets/builds/gorb-tubs/gorb-tubs-3.png'
     ],
+    extras: ['5h40m - 3*6 Chunks - 200,000$', '12h - 6*6 chunks - 450,000$'],
     buyers: [
-      { name: 'EthanDeDurian', price: '800,000', amount: 4, design: '5h40m' },
-      { name: 'lil_wind_spirit', price: '200,000', amount: 1, design: '5h40m' },
-      { name: 'Numinouspie', price: '300,000', amount: 1, design: '5h40m' }
+      { name: 'EthanDeDurian', price: '800,000$', amount: 4, design: '5h40m' },
+      { name: 'lil_wind_spirit', price: '200,000$', amount: 1, design: '5h40m' },
+      { name: 'Numinouspie', price: '300,000$', amount: 1, design: '5h40m' },
+      { name: 'LittleFilo', price: '200,000$', amount: 1, design: '5h40m' }
     ]
   },
   {
@@ -67,7 +69,7 @@ export const builds: Build[] = [
     slug: 'mapart',
     title: 'Mapart',
     short: 'Custom map art builds for decoration, collections, and server projects.',
-    builders: ['Mihaitzuuu', 'Beau_01'],
+    builders: ['Mihaitzuuu'],
     photos: [
       '/assets/builds/mapart/mapart-1.png',
       '/assets/builds/mapart/mapart-2.png',
@@ -78,9 +80,9 @@ export const builds: Build[] = [
     slug: 'mina-cathedral',
     title: "Mina_03's Cathedral",
     short: 'Big gothic cathedral with detailed exterior.',
-    price: '250',
+    price: '1,000,000$',
     time: '1 day',
-    builders: ['SoloBuilder'],
+    builders: ['Mihaitzuuu', 'Luna2121654'],
     photos: [
       '/assets/builds/mina-cathedral/mina-cathedral-1.png',
       '/assets/builds/mina-cathedral/mina-cathedral-2.png',
