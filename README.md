@@ -1,6 +1,4 @@
 # Mihaiu's Minecraft Portfolio
-[![Ask DeepWiki](https://devin.ai/assets/askdeepwiki.png)](https://deepwiki.com/ro-mihaiu/ro-mihaiu.github.io.git)
-
 This repository contains the source code for my personal portfolio website. It serves as a professional gallery for my Minecraft builds and projects, primarily created on the BlossomCraft SMP. The site showcases my skills as a builder, architect, and redstone engineer.
 
 The live website can be viewed at: **[https://ro-mihaiu.github.io/](https://ro-mihaiu.github.io/)**
