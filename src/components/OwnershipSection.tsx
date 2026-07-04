@@ -1,12 +1,24 @@
 import { motion } from 'framer-motion'
+import { warps as warpData } from '../data/warps'
 
-const warps = [
-  { slug: 'mihu-farm', title: 'pw mihu-farm', desc: 'I manage the farm - harvesting and restocking as needed.', icon: '/assets/items/pw-mihu-farm.png' },
-  { slug: 'mihu-rentals', title: 'pw mihu-rentals', desc: 'I handle rentals and player plots - follow posted rules.', icon: '/assets/items/pw-mihu-rentals.png' },
-  { slug: 'mihu-shop', title: 'pw mihu-shop', desc: 'I run the shop - trade using signs or shop menus.', icon: '/assets/items/pw-mihu-shop.png' },
-  { slug: 'mihu-casino', title: 'pw mihu-casino', desc: 'I host mini-games and events - play fair and enjoy.', icon: '/assets/items/pw-mihu-casino.png' },
-  { slug: 'mihu-money', title: 'pw mihu-money', desc: 'Money island setup and guide coming soon.', icon: '/assets/items/pw-mihu-money.png' }
-]
+const iconMap: Record<string, string> = {
+  'dungeon': '/assets/items/pw-mihu-farm.png',
+  'mihu-farm': '/assets/items/pw-mihu-farm.png',
+  'workers-guild': '/assets/items/pw-mihu-rentals.png',
+  'mihu-rentals': '/assets/items/pw-mihu-rentals.png',
+  'mihu-shop': '/assets/items/pw-mihu-shop.png',
+  'mihu-casino': '/assets/items/pw-mihu-casino.png',
+  'mihu-money': '/assets/items/pw-mihu-money.png'
+}
+
+const ownedWarps = warpData
+  .filter((warp) => ['dungeon', 'mihu-farm', 'workers-guild', 'mihu-rentals', 'mihu-shop', 'mihu-casino', 'mihu-money'].includes(warp.id))
+  .map((warp) => ({
+    slug: warp.id,
+    title: `pw ${warp.id}`,
+    desc: warp.desc,
+    icon: iconMap[warp.id] || '/assets/items/pw-mihu-farm.png'
+  }))
 
 export default function OwnershipSection() {
   return (
@@ -27,7 +39,7 @@ export default function OwnershipSection() {
           >
             <div className="mt-6">
               <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
-                {warps.map((w) => (
+                {ownedWarps.map((w) => (
                   <div key={w.slug} className="group rounded-xl border border-white/10 bg-black/30 p-4 transition transform-gpu duration-300 ease-out hover:shadow-2xl hover:scale-105 hover:ring-2 hover:ring-sakura-pink/20 overflow-hidden">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">

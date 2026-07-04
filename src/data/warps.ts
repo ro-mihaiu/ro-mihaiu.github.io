@@ -13,7 +13,7 @@ export const warps: Warp[] = [
     id: 'dungeon',
     name: 'dungeon',
     status: 'active',
-    desc: 'Dungeon with traps, puzzles, and loot - for adventurers.',
+    desc: "Dungeon gear. Prepare here for '/warp dungeon' with 1:1 experience. You may fight The Minotaur or msg Mihaitzuuu to spawn Warden/Wither.",
     guide: '',
     rules: [
       {
@@ -57,7 +57,7 @@ export const warps: Warp[] = [
     id: 'mihu-farm',
     name: 'mihu-farm',
     status: 'active',
-    desc: 'Mega farm for crops and resources - maintained regularly.',
+    desc: 'Come and relax at mihu-farm while getting farmer / woodcutter exp.',
     guide: '',
     items: [
       { name: 'Enchanted Decree', icon: '/assets/items/enchanted-decree.png' },
@@ -115,7 +115,7 @@ export const warps: Warp[] = [
     id: 'workers-guild',
     name: 'workers-guild',
     status: 'upcoming',
-    desc: 'A guild for workers to collaborate and share resources.',
+    desc: 'A guild for builders, redstoners, map artists to collaborate and share resources.',
     guide: '',
     rules: [
       {
@@ -154,7 +154,7 @@ export const warps: Warp[] = [
   { id: 'mihu-rentals', 
     name: 'mihu-rentals', 
     status: 'active', 
-    desc: 'Item rentals, mostly tools and blocks - follow posted rules.', 
+    desc: 'Pinata gear, Mining gear, and other items for rent.', 
     guide: '',
     rules: [
       {
