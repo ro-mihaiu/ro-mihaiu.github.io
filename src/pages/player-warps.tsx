@@ -55,9 +55,9 @@ export default function PlayerWarps() {
                   </div>
                   <div className="flex-shrink-0">
                     <button
-                      onClick={() => navigator.clipboard?.writeText(`/pw ${w.name}`)}
+                      onClick={() => navigator.clipboard?.writeText(`pw ${w.id} - Mihaitzuuu`)}
                       className="rounded-full bg-sakura-pink/80 px-4 py-2 text-black font-medium text-sm self-center"
-                      aria-label={`Copy warp ${w.name}`}
+                      aria-label={`Copy warp ${w.id}`}
                     >
                       Copy Warp
                     </button>

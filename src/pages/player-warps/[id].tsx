@@ -26,7 +26,7 @@ export default function WarpPage({ warp }: Props) {
   return (
     <>
       <Head>
-        <title>{warp.name} — Player Warp</title>
+        <title>{`pw ${warp.id} - Mihaitzuuu`}</title>
         <meta name="description" content={warp.desc} />
       </Head>
 

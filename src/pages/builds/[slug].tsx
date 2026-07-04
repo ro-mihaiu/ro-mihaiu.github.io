@@ -45,7 +45,7 @@ export default function BuildDetail() {
   return (
     <>
       <Head>
-        <title>{build.title} — Build details</title>
+        <title>{`${build.slug} — Mihaitzuuu Builds`}</title>
       </Head>
       <div className="relative min-h-screen bg-deep-black text-white">
         <Navbar />
