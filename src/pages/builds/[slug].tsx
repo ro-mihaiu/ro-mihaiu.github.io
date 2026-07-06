@@ -10,6 +10,9 @@ export default function BuildDetail() {
   const router = useRouter()
   const { slug } = router.query
 
+  const [lightboxOpen, setLightboxOpen] = useState(false)
+  const [photoIndex, setPhotoIndex] = useState(0)
+
   if (!slug || Array.isArray(slug)) return null
 
   const build = getBuildBySlug(slug)
@@ -18,9 +21,6 @@ export default function BuildDetail() {
       <div className="min-h-screen flex items-center justify-center">Build not found</div>
     )
   }
-
-  const [lightboxOpen, setLightboxOpen] = useState(false)
-  const [photoIndex, setPhotoIndex] = useState(0)
 
   function prev() {
     if (!build) return
