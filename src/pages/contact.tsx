@@ -92,7 +92,7 @@ export default function ContactPage() {
     }
 
     try {
-      const embed = {
+      const embed: Record<string, unknown> = {
         title: `Build Commission: ${formData.buildType}`,
         color: 0xff8ac2,
         fields: [
@@ -106,20 +106,68 @@ export default function ContactPage() {
       }
 
       if (formData.youtubeLink) {
-        embed.fields.push({ name: 'YouTube Reference', value: formData.youtubeLink, inline: false })
+        (embed.fields as Array<Record<string, unknown>>).push({ name: 'YouTube Reference', value: formData.youtubeLink, inline: false })
       }
 
-      const response = await fetch(webhookUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+      const hasFiles = formData.photoFiles.length > 0 || formData.schematicFile
+
+      let response: Response
+
+      if (hasFiles) {
+        // Use multipart/form-data to upload files to Discord
+        const formPayload = new FormData()
+
+        // Attach all photo files
+        const attachments: { id: number; filename: string; description?: string }[] = []
+        let fileIndex = 0
+
+        for (const photo of formData.photoFiles) {
+          formPayload.append(`files[${fileIndex}]`, photo)
+          attachments.push({ id: fileIndex, filename: photo.name, description: 'Reference photo' })
+          fileIndex++
+        }
+
+        // Attach schematic file
+        if (formData.schematicFile) {
+          formPayload.append(`files[${fileIndex}]`, formData.schematicFile)
+          attachments.push({ id: fileIndex, filename: formData.schematicFile.name, description: 'Schematic file' })
+          fileIndex++
+        }
+
+        // Build payload_json with file references
+        const payload: Record<string, unknown> = {
           content: `**New commission request from \`${formData.name}\`**`,
           embeds: [embed],
-        }),
-      })
+          attachments,
+        }
+
+        // Add photo URLs to embed if there are photos
+        const photoAttachments = attachments.filter((_, i) => i < formData.photoFiles.length)
+        if (photoAttachments.length > 0) {
+          embed.image = { url: `attachment://${photoAttachments[0].filename}` }
+        }
+
+        formPayload.append('payload_json', JSON.stringify(payload))
+
+        response = await fetch(webhookUrl, {
+          method: 'POST',
+          body: formPayload,
+        })
+      } else {
+        // No files — send as JSON
+        response = await fetch(webhookUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            content: `**New commission request from \`${formData.name}\`**`,
+            embeds: [embed],
+          }),
+        })
+      }
 
       if (!response.ok) {
-        throw new Error(`Discord webhook returned ${response.status}`)
+        const errText = await response.text().catch(() => 'unknown')
+        throw new Error(`Discord webhook returned ${response.status}: ${errText}`)
       }
 
       setSubmitted(true)
