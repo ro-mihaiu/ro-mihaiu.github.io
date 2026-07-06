@@ -75,56 +75,83 @@ export default function ContactPage() {
     e.preventDefault()
     setIsLoading(true)
 
+    const webhookUrl = process.env.NEXT_PUBLIC_DISCORD_WEBHOOK_URL
+
+    if (!webhookUrl) {
+      // No webhook configured, fallback to mailto
+      const fileInfo = formData.schematicFile ? `\nSchematic File: ${formData.schematicFile.name}` : ''
+      const photoInfo = formData.photoFiles.length > 0 ? `\nReference Photos: ${formData.photoFiles.length} file(s) attached` : ''
+      const youtubeInfo = formData.youtubeLink ? `\nYouTube Reference: ${formData.youtubeLink}` : ''
+
+      const mailtoLink = `mailto:mihaiu.dev@gmail.com?subject=Build Commission Request&body=Name: ${encodeURIComponent(formData.name)}%0ABuild Type: ${encodeURIComponent(formData.buildType)}%0ASubserver: ${encodeURIComponent(formData.subserver || 'Not specified')}%0ABudget: ${encodeURIComponent(formData.budget || 'Not specified')}%0ATimeframe: ${encodeURIComponent(formData.timeframe || 'Not specified')}%0A%0AProject Details:%0A${encodeURIComponent(formData.details)}${fileInfo}${youtubeInfo}%0A%0A----%0ANote: Please send this email with any attached files (schematics, photos) to complete your request.`
+      window.location.href = mailtoLink
+      setSubmitted(true)
+      setIsLoading(false)
+      setTimeout(() => setSubmitted(false), 3000)
+      return
+    }
+
     try {
-      // Try using the API endpoint
-      const response = await fetch('/api/commission', {
+      const embed = {
+        title: `Build Commission: ${formData.buildType}`,
+        color: 0xff8ac2,
+        fields: [
+          { name: 'Username', value: formData.name, inline: true },
+          { name: 'Subserver', value: formData.subserver || 'Not specified', inline: true },
+          { name: 'Budget', value: formData.budget || 'Not specified', inline: true },
+          { name: 'Timeframe', value: formData.timeframe || 'Not specified', inline: true },
+          { name: 'Details', value: formData.details.substring(0, 1024) },
+        ],
+        timestamp: new Date().toISOString(),
+      }
+
+      if (formData.youtubeLink) {
+        embed.fields.push({ name: 'YouTube Reference', value: formData.youtubeLink, inline: false })
+      }
+
+      const response = await fetch(webhookUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name: formData.name,
-          buildType: formData.buildType,
-          subserver: formData.subserver,
-          budget: formData.budget,
-          timeframe: formData.timeframe,
-          details: formData.details,
-          youtubeLink: formData.youtubeLink,
+          content: `**New commission request from \`${formData.name}\`**`,
+          embeds: [embed],
         }),
       })
 
-      if (response.ok) {
-        setSubmitted(true)
-        setTimeout(() => {
-          setSubmitted(false)
-          // Reset form
-          setFormData({
-            name: '',
-            buildType: '',
-            subserver: '',
-            budget: '',
-            timeframe: '',
-            details: '',
-            youtubeLink: '',
-            schematicFile: null,
-            photoFiles: []
-          })
-          setPhotoPreview([])
-        }, 3000)
-        return
+      if (!response.ok) {
+        throw new Error(`Discord webhook returned ${response.status}`)
       }
+
+      setSubmitted(true)
+      setTimeout(() => {
+        setSubmitted(false)
+        setFormData({
+          name: '',
+          buildType: '',
+          subserver: '',
+          budget: '',
+          timeframe: '',
+          details: '',
+          youtubeLink: '',
+          schematicFile: null,
+          photoFiles: [],
+        })
+        setPhotoPreview([])
+      }, 3000)
     } catch (error) {
-      console.log('API submission failed, falling back to mailto')
+      console.error('Discord webhook failed:', error)
+      // Fallback to mailto
+      const fileInfo = formData.schematicFile ? `\nSchematic File: ${formData.schematicFile.name}` : ''
+      const photoInfo = formData.photoFiles.length > 0 ? `\nReference Photos: ${formData.photoFiles.length} file(s) attached` : ''
+      const youtubeInfo = formData.youtubeLink ? `\nYouTube Reference: ${formData.youtubeLink}` : ''
+
+      const mailtoLink = `mailto:mihaiu.dev@gmail.com?subject=Build Commission Request&body=Name: ${encodeURIComponent(formData.name)}%0ABuild Type: ${encodeURIComponent(formData.buildType)}%0ASubserver: ${encodeURIComponent(formData.subserver || 'Not specified')}%0ABudget: ${encodeURIComponent(formData.budget || 'Not specified')}%0ATimeframe: ${encodeURIComponent(formData.timeframe || 'Not specified')}%0A%0AProject Details:%0A${encodeURIComponent(formData.details)}${fileInfo}${youtubeInfo}%0A%0A----%0ANote: Please send this email with any attached files (schematics, photos) to complete your request.`
+      window.location.href = mailtoLink
+      setSubmitted(true)
+      setTimeout(() => setSubmitted(false), 3000)
+    } finally {
+      setIsLoading(false)
     }
-
-    // Fallback to mailto if API fails or is not configured
-    const fileInfo = formData.schematicFile ? `\nSchematic File: ${formData.schematicFile.name}` : ''
-    const photoInfo = formData.photoFiles.length > 0 ? `\nReference Photos: ${formData.photoFiles.length} file(s) attached` : ''
-    const youtubeInfo = formData.youtubeLink ? `\nYouTube Reference: ${formData.youtubeLink}` : ''
-
-    const mailtoLink = `mailto:mihaiu.dev@gmail.com?subject=Build Commission Request&body=Name: ${formData.name}%0ABuild Type: ${formData.buildType}%0ASubserver: ${formData.subserver}%0ABudget: ${formData.budget}%0ATimeframe: ${formData.timeframe}%0A%0AProject Details:%0A${formData.details}${fileInfo}${youtubeInfo}${photoInfo}%0A%0A----%0ANote: Please send this email with any attached files (schematics, photos) to complete your request.`
-    window.location.href = mailtoLink
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 3000)
-    setIsLoading(false)
   }
 
   return (
@@ -329,7 +356,7 @@ export default function ContactPage() {
 
           {submitted && (
             <div className="mt-6 rounded-lg bg-emerald/20 border border-emerald px-4 py-3 text-emerald">
-              ✓ Opening your email client. Please send the message to complete your request.
+              ✓ Commission request sent! Mihaitzuuu will review it shortly.
             </div>
           )}
 
