@@ -1,0 +1,14 @@
+# Allow search engines to crawl the site
+User-agent: *
+Allow: /
+Disallow: /admin/
+
+# Specific rules
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap
+Sitemap: https://mihaitzuuu.com/sitemap.xml

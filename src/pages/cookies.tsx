@@ -1,8 +1,15 @@
 import Link from 'next/link'
 
+import Head from 'next/head'
+
 export default function CookiesPolicy() {
   return (
-    <main className="min-h-screen bg-deep-black text-white px-6 py-20">
+    <>
+      <Head>
+        <title>Cookie Policy — Mihaitzuuu Builds</title>
+        <meta name="description" content="Cookie Policy for Mihaitzuuu's Builds website. Learn about cookies and browser storage used on our site." />
+      </Head>
+      <main className="min-h-screen bg-deep-black text-white px-6 py-20">
       <div className="max-w-5xl mx-auto rounded-[2rem] border border-white/10 bg-black/80 p-10 shadow-2xl shadow-black/50 backdrop-blur-xl">
         <p className="text-sm uppercase tracking-[0.3em] text-sakura-pink/80">Legal</p>
         <h1 className="mt-4 text-4xl font-black text-white">Cookie Policy</h1>
@@ -28,5 +35,6 @@ export default function CookiesPolicy() {
         </Link>
       </div>
     </main>
+    </>
   )
 }

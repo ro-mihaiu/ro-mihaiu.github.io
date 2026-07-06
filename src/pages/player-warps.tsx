@@ -25,15 +25,21 @@ export default function PlayerWarps() {
   return (
     <>
       <Head>
-        <title>Player Warps — Mihaitzuuu Builds</title>
-        <meta name="description" content="Player Warps for BlossomCraft SMP" />
+        <title>Player Warps — BlossomCraft SMP</title>
+        <meta name="description" content="Explore player warps on BlossomCraft SMP. Discover player builds, shops, farms, and destinations across the server." />
+        <meta name="keywords" content="player warps, BlossomCraft, Minecraft server, warp destinations" />
       </Head>
 
       <div className="relative min-h-screen overflow-hidden bg-deep-black text-white">
         <Navbar />
         <main className="pt-28 max-w-6xl mx-auto px-6 pb-24">
-          <h1 className="text-3xl font-black mb-6">Player Warps</h1>
-          <p className="text-gray-300 mb-8">Quick list of player warps. Click to copy warp name.</p>
+          <div className="mb-8">
+            <h1 className="text-4xl font-black mb-4">Player Warps</h1>
+            <p className="text-gray-300 mb-2">Discover player-owned locations across BlossomCraft SMP. Use the warp command to visit any location instantly.</p>
+            <div className="mt-4 rounded-lg bg-white/5 border border-white/10 p-4">
+              <p className="text-sm text-gray-400"><span className="text-sakura-pink font-semibold">How to use:</span> Click any "Copy Warp" button to copy the warp command to your clipboard, then paste it in-game.</p>
+            </div>
+          </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
             {warps.map((w) => (

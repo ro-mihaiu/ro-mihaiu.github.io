@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Navbar from '../../components/Navbar'
@@ -45,7 +46,34 @@ export default function BuildDetail() {
   return (
     <>
       <Head>
-        <title>{`${build.slug} — Mihaitzuuu Builds`}</title>
+        <title>{`${build.title} — Mihaitzuuu Minecraft Builds`}</title>
+        <meta name="description" content={`${build.title}. ${build.short}${build.price ? ` Price: ${build.price}` : ''}`} />
+        <meta name="keywords" content={`${build.title}, Minecraft build, custom Minecraft, ${build.slug}`} />
+        <meta property="og:title" content={build.title} />
+        <meta property="og:description" content={build.short} />
+        {build.photos[0] && <meta property="og:image" content={`https://mihaitzuuu.com${build.photos[0]}`} />}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'CreativeWork',
+              name: build.title,
+              description: build.short,
+              url: `https://mihaitzuuu.com/builds/${build.slug}`,
+              image: build.photos[0] ? `https://mihaitzuuu.com${build.photos[0]}` : undefined,
+              creator: {
+                '@type': 'Person',
+                name: 'Mihaitzuuu'
+              },
+              offers: build.price ? {
+                '@type': 'Offer',
+                price: build.price,
+                priceCurrency: 'USD'
+              } : undefined
+            })
+          }}
+        />
       </Head>
       <div className="relative min-h-screen bg-deep-black text-white">
         <Navbar />
@@ -58,13 +86,13 @@ export default function BuildDetail() {
             {(build.photos || []).slice(0, 3).map((p, i) => (
               <div
                 key={i}
-                className="h-48 bg-gray-800 flex items-center justify-center overflow-hidden rounded-lg cursor-pointer"
+                className="relative h-48 bg-gray-800 flex items-center justify-center overflow-hidden rounded-lg cursor-pointer"
                 onClick={() => {
                   setPhotoIndex(i)
                   setLightboxOpen(true)
                 }}
               >
-                <img src={p} alt={`${build.title} ${i + 1}`} className="object-cover w-full h-full" />
+                <Image src={p} alt={`${build.title} ${i + 1}`} fill className="object-cover" />
               </div>
             ))}
           </div>
@@ -87,8 +115,8 @@ export default function BuildDetail() {
                 ‹
               </button>
 
-              <div className="max-w-[90vw] max-h-[86vh]">
-                <img src={build.photos[photoIndex]} alt={`${build.title} full ${photoIndex + 1}`} className="object-contain w-full h-full" />
+              <div className="max-w-[90vw] max-h-[86vh] relative w-full h-96">
+                <Image src={build.photos[photoIndex]} alt={`${build.title} full ${photoIndex + 1}`} fill className="object-contain" />
               </div>
 
               <button

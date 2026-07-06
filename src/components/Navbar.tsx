@@ -1,14 +1,14 @@
 import React from 'react'
 
 const links = [
-  'Home', 'Builds', 'Projects', 'Player Warps', 'About', 'Contact'
+  'Home', 'Builds', 'Player Warps', 'About', 'Contact'
 ]
 
 export default function Navbar() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-black/30 border-b border-white/5">
+    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-black/30" role="banner">
       <div className="max-w-7xl mx-auto px-6 py-4">
-        <nav className="flex flex-wrap justify-center gap-6 items-center">
+        <nav className="flex flex-wrap justify-center gap-6 items-center" aria-label="Main navigation">
           {links.map((l) => (
             <a
               key={l}
@@ -17,7 +17,9 @@ export default function Navbar() {
                   ? '/player-warps'
                   : l === 'Builds'
                     ? '/builds'
-                    : `/index.html#${l.toLowerCase().replace(/\s+/g, '-')}`
+                    : l === 'Contact'
+                      ? '/contact'
+                      : `#${l.toLowerCase().replace(/\s+/g, '-')}`
               }
               className="relative px-1 py-2 text-sm text-gray-200 hover:text-white"
             >

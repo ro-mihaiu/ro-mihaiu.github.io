@@ -1,8 +1,8 @@
 export default function ContactSection() {
   return (
-    <section id="contact" className="relative py-24">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="rounded-[2rem] border border-white/10 bg-black/40 p-10 shadow-xl shadow-black/30 backdrop-blur-xl">
+    <section id="contact" className="relative min-h-[72vh] overflow-hidden flex items-center justify-center py-20" aria-label="Contact and collaboration section">
+      <div className="max-w-7xl mx-auto px-6 pb-32">
+        <div className="rounded-[2rem] border border-white/10 bg-transparent p-10 shadow-xl shadow-black/15 backdrop-blur-xl">
           <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] items-center">
             <div>
               <p className="text-sm uppercase tracking-[0.3em] text-sakura-pink/80">Let’s collaborate</p>
@@ -11,7 +11,7 @@ export default function ContactSection() {
                 I take commissions for builds, Redstone, and server design.
               </p>
             </div>
-            <div className="space-y-4 rounded-3xl border border-white/10 bg-black/50 p-8">
+            <div className="space-y-4 rounded-3xl border border-white/10 bg-transparent p-8">
               <div>
                 <p className="text-sm uppercase tracking-[0.3em] text-blossom-pink/80">Discord</p>
                 <p className="mt-2 text-white"><a href="https://discord.com/users/1027052856697684099" target="_blank" rel="noopener noreferrer">@ro_mihaiu</a></p>
