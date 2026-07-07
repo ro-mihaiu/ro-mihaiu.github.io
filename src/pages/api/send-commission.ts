@@ -11,7 +11,6 @@ type ResponseData = {
  *
  * IMPORTANT:
  * - Must not import build-time email libraries (GitHub builds run strict type-check step).
- *
  * - Discord webhook: set WEBHOOK_URL in .env.local
  * - Resend email: set RESEND_API_KEY in .env.local
  */
@@ -25,35 +24,72 @@ export default async function handler(
   }
 
   try {
-    const { name, buildType, subserver, budget, timeframe, details, youtubeLink } = req.body
+    const {
+      name,
+      buildType,
+      subserver,
+      budget,
+      timeframe,
+      details,
+      youtubeLink,
+      yourEmail,
+    } = req.body as {
+      name: string
+      buildType: string
+      subserver?: string
+      budget?: string
+      timeframe?: string
+      details: string
+      youtubeLink?: string
+      yourEmail?: string
+    }
 
     if (!name || !buildType || !details) {
       return res.status(400).json({ message: 'Missing required fields' })
     }
 
-    let errors: string[] = []
+    // Send to the user + Mihai builds inbox
+    const userEmail = (yourEmail || '').trim()
+    const mihaiEmail = 'mihaiu.builds@gmail.com'
+
+    const recipients = new Set<string>()
+    if (userEmail) recipients.add(userEmail)
+    recipients.add(mihaiEmail)
+
+    const errors: string[] = []
     let didSendDiscord = false
     let didSendResend = false
 
-    // Discord webhook (best-effort)
+    const discordEmbed = {
+      title: `Build Commission: ${buildType}`,
+      color: 0xff8ac2,
+      fields: [
+        { name: 'Username', value: name || '—', inline: true },
+        { name: 'Subserver', value: subserver || 'Not specified', inline: true },
+        { name: 'Budget', value: budget || 'Not specified', inline: true },
+        { name: 'Timeframe', value: timeframe || 'Not specified', inline: true },
+        {
+          name: 'YouTube',
+          value: youtubeLink ? `[link](${youtubeLink})` : 'None',
+          inline: false,
+        },
+        {
+          name: 'Project Details',
+          value: String(details).slice(0, 3800) || '—',
+          inline: false,
+        },
+      ],
+      timestamp: new Date().toISOString(),
+    }
+
+    // Discord webhook (best-effort) -> embed
     if (process.env.WEBHOOK_URL) {
       try {
         const webhookResponse = await fetch(process.env.WEBHOOK_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            content: `New Commission Request from **${name}**\n\`\`\`${JSON.stringify(
-              {
-                buildType,
-                subserver: subserver || 'Not specified',
-                budget: budget || 'Not specified',
-                timeframe: timeframe || 'Not specified',
-                youtubeLink: youtubeLink || 'None',
-                details,
-              },
-              null,
-              2
-            )}\`\`\``,
+            embeds: [discordEmbed],
           }),
         })
 
@@ -68,9 +104,24 @@ export default async function handler(
       }
     }
 
-    // Resend email (primary)
+    // Resend email (best-effort)
     if (process.env.RESEND_API_KEY) {
       try {
+        const html = `
+          <h2>New Build Commission Request</h2>
+          <p><strong>Username:</strong> ${name}</p>
+          <p><strong>Build Type:</strong> ${buildType}</p>
+          <p><strong>Subserver:</strong> ${subserver || 'Not specified'}</p>
+          <p><strong>Budget:</strong> ${budget || 'Not specified'}</p>
+          <p><strong>Timeframe:</strong> ${timeframe || 'Not specified'}</p>
+          ${youtubeLink ? `<p><strong>YouTube Reference:</strong> <a href="${youtubeLink}">${youtubeLink}</a></p>` : ''}
+          <h3>Project Details:</h3>
+          <p>${String(details).replace(/\n/g, '<br>')}</p>
+        `
+
+        // Resend supports `to` as a string or array; keep simple with comma-free multiple requests if needed.
+        const to = Array.from(recipients)
+
         const resendResponse = await fetch('https://api.resend.com/emails', {
           method: 'POST',
           headers: {
@@ -79,19 +130,9 @@ export default async function handler(
           },
           body: JSON.stringify({
             from: 'noreply@ro-mihaiu.xyz',
-            to: 'mihaiu.dev@gmail.com',
+            to,
             subject: `New Build Commission Request from ${name}`,
-            html: `
-              <h2>New Commission Request</h2>
-              <p><strong>Username:</strong> ${name}</p>
-              <p><strong>Build Type:</strong> ${buildType}</p>
-              <p><strong>Subserver:</strong> ${subserver || 'Not specified'}</p>
-              <p><strong>Budget:</strong> ${budget || 'Not specified'}</p>
-              <p><strong>Timeframe:</strong> ${timeframe || 'Not specified'}</p>
-              ${youtubeLink ? `<p><strong>YouTube Reference:</strong> <a href=\"${youtubeLink}\">${youtubeLink}</a></p>` : ''}
-              <h3>Project Details:</h3>
-              <p>${String(details).replace(/\n/g, '<br>')}</p>
-            `,
+            html,
           }),
         })
 
@@ -108,7 +149,8 @@ export default async function handler(
 
     if (!didSendDiscord && !didSendResend) {
       return res.status(501).json({
-        message: 'Email service not configured. Configure WEBHOOK_URL and/or RESEND_API_KEY in .env.local',
+        message:
+          'Email service not configured. Configure WEBHOOK_URL and/or RESEND_API_KEY in .env.local',
       })
     }
 
