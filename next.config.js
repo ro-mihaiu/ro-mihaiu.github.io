@@ -5,7 +5,9 @@ const nextConfig = {
     unoptimized: true,
     formats: ["image/avif", "image/webp"],
   },
-  output: 'export',
+  // output: 'export', // disabled because API routes are required for /api/send-commission
+  // IMPORTANT: Next.js static export (output: 'export') breaks API routes.
+  // For local testing + commission submissions, we must run in server mode.
   trailingSlash: true,
 };
 

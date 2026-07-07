@@ -78,7 +78,7 @@ export default async function handler(
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            from: 'noreply@mihaitzuuu.com',
+            from: 'noreply@ro-mihaiu.xyz',
             to: 'mihaiu.dev@gmail.com',
             subject: `New Build Commission Request from ${name}`,
             html: `
