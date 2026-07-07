@@ -11,21 +11,44 @@ export default function ContactSection() {
                 I take commissions for builds, Redstone, and server design.
               </p>
             </div>
+
             <div className="space-y-4 rounded-3xl border border-white/10 bg-transparent p-8">
+
               <div>
                 <p className="text-sm uppercase tracking-[0.3em] text-blossom-pink/80">Discord</p>
-                <p className="mt-2 text-white"><a href="https://discord.com/users/1027052856697684099" target="_blank" rel="noopener noreferrer">@ro_mihaiu</a></p>
+                <p className="mt-2 text-white">
+                  <a
+                    href="https://discord.ro-mihaiu.xyz"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-sakura-pink transition"
+                  >
+                    @ro_mihaiu
+                  </a>
+
+                </p>
               </div>
               <div>
-                <p className="text-sm uppercase tracking-[0.3em] text-blossom-pink/80">Email</p>
-                <p className="mt-2 text-white"><a href="mailto:mihaiu.dev@gmail.com" target="_blank" rel="noopener noreferrer">mihaiu.dev@gmail.com</a></p>
+                <p className="text-sm uppercase tracking-[0.3em] text-blossom-pink/80">Build Commissions</p>
+                <p className="mt-2 text-white">
+                  <a href="/commissions" className="hover:text-sakura-pink transition">Click here</a>
+                </p>
+
+              </div>
+              <div>
+                <p className="text-sm uppercase tracking-[0.3em] text-blossom-pink/80">Reports & Suggestions</p>
+                <p className="mt-2 text-white">
+                  <a href="/contact" className="hover:text-sakura-pink transition">Click here</a>
+                </p>
               </div>
               <div>
                 <p className="text-sm uppercase tracking-[0.3em] text-blossom-pink/80">Server</p>
                 <p className="mt-2 text-white">play.blossomcraft.org</p>
               </div>
             </div>
+
           </div>
+
         </div>
       </div>
     </section>
