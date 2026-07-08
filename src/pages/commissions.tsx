@@ -134,20 +134,6 @@ export default function CommissionsPage() {
     setSchematicFile(file)
   }
 
-  const payload: CommissionPayload = {
-    name: form.name,
-    discordUser: form.discordUser,
-    yourEmail: form.yourEmail,
-    buildType: form.buildType,
-    budget: form.budget,
-    subserver: form.subserver,
-    timeframe: form.timeframe,
-    details: form.details,
-    youtubeLink: form.youtubeLink,
-    schematicFileName: schematicFile?.name,
-    photoFilesCount: photoFiles.length || undefined,
-  }
-
   const validate = () => {
     if (!form.name.trim()) return 'Your Username is required.'
     if (!form.discordUser.trim()) return 'Discord is required.'
@@ -174,34 +160,39 @@ export default function CommissionsPage() {
     setIsLoading(true)
 
     try {
-      // Note: current backend endpoints do NOT accept file uploads.
-      // We still let users select a schematic/photos, but we only send filenames/count.
+      // Upload files + form data to the server (multipart/form-data)
+      const fd = new FormData()
+      fd.append('name', form.name)
+      fd.append('discordUser', form.discordUser)
+      fd.append('yourEmail', form.yourEmail)
+      fd.append('buildType', form.buildType)
+      fd.append('subserver', form.subserver)
+      fd.append('budget', form.budget)
+      fd.append('timeframe', form.timeframe)
+      fd.append('details', form.details)
+      if (form.youtubeLink) fd.append('youtubeLink', form.youtubeLink)
+
+      if (schematicFile) {
+        fd.append('schematicFile', schematicFile)
+      }
+
+      for (const photo of photoFiles) {
+        fd.append('photoFiles', photo)
+      }
+
       const res = await fetch('/api/send-commission', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: form.name,
-          buildType: form.buildType,
-          subserver: form.subserver,
-          budget: form.budget,
-          timeframe: form.timeframe,
-          details: [
-            form.details,
-            schematicFile ? `\n\nSchematic file: ${schematicFile.name}` : '',
-            photoFiles.length
-              ? `\n\nReference Photos: ${photoFiles.length} file(s) attached (upload not sent by API).`
-              : '',
-            form.youtubeLink ? `\n\nYouTube: ${form.youtubeLink}` : '',
-          ]
-            .filter(Boolean)
-            .join(''),
-          youtubeLink: form.youtubeLink || undefined,
-        }),
+        body: fd,
       })
 
       if (!res.ok) {
         const data = await res.json().catch(() => null)
-        throw new Error(data?.message || `Request failed with ${res.status}`)
+        const serverMessage =
+          data?.message ||
+          (Array.isArray(data?.errors) ? data.errors.join(' | ') : null) ||
+          `Request failed with ${res.status}`
+        console.error('[/api/send-commission] server response:', { status: res.status, data })
+        throw new Error(serverMessage)
       }
 
       setSubmitted(true)
@@ -395,9 +386,7 @@ export default function CommissionsPage() {
               {/* Youtube + schematic */}
               <div className="grid gap-6 md:grid-cols-2">
                 <div>
-                  <label className="block text-sm font-semibold text-white mb-2">
-                    YouTube Reference Link (optional)
-                  </label>
+                  <label className="block text-sm font-semibold text-white mb-2">YouTube Reference Link (optional)</label>
                   <input
                     type="url"
                     name="youtubeLink"
@@ -409,14 +398,11 @@ export default function CommissionsPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-white mb-2">
-                    Build File / Schematic (optional)
-                  </label>
+                  <label className="block text-sm font-semibold text-white mb-2">Build File / Schematic (optional)</label>
                   <input
                     type="file"
                     onChange={handleSchematicChange}
                     className="w-full rounded-lg bg-white/5 border border-white/10 px-4 py-3 text-gray-300 focus:outline-none focus:border-sakura-pink/50 file:bg-sakura-pink file:text-black file:border-0 file:rounded-md file:px-3 file:py-1 file:text-sm file:font-semibold file:cursor-pointer"
-                    // Litematica files are typically .litematic but we accept any.
                     accept=".litematic,.schematic,.schem,.nbt,.zip,.rar,application/octet-stream"
                   />
                   {schematicFile && (
@@ -515,7 +501,7 @@ export default function CommissionsPage() {
                   <p className="text-white mt-1">
                     <a
                       href="#"
-                      onClick={(e) => {
+                      onClick={e => {
                         e.preventDefault()
                         navigator.clipboard?.writeText('/mail send Mihaitzuuu')
                       }}
