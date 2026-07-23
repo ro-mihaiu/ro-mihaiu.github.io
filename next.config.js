@@ -1,12 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  // GitHub Pages needs a static export; Vercel needs server output for API routes.
+  ...(process.env.STATIC_EXPORT === 'true' ? { output: 'export' } : {}),
   reactStrictMode: false,
   images: {
     unoptimized: true,
     formats: ["image/avif", "image/webp"],
   },
-  // GitHub Pages serves the generated static site from ./out.
   trailingSlash: true,
 };
 
