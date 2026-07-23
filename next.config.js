@@ -1,13 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
   reactStrictMode: false,
   images: {
     unoptimized: true,
     formats: ["image/avif", "image/webp"],
   },
-  // output: 'export', // disabled because API routes are required for /api/send-commission
-  // IMPORTANT: Next.js static export (output: 'export') breaks API routes.
-  // For local testing + commission submissions, we must run in server mode.
+  // GitHub Pages serves the generated static site from ./out.
   trailingSlash: true,
 };
 
