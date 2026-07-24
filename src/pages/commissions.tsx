@@ -187,8 +187,18 @@ export default function CommissionsPage() {
 
       if (!res.ok) {
         const data = await res.json().catch(() => null)
+        const formatServerError = (error: unknown): string | null => {
+          if (typeof error === 'string') return error
+          if (error && typeof error === 'object' && 'message' in error) {
+            const message = (error as { message?: unknown }).message
+            return typeof message === 'string' ? message : null
+          }
+          return null
+        }
         const serverMessage =
-          (Array.isArray(data?.errors) && data.errors.length > 0 ? data.errors.join(' | ') : null) ||
+          (Array.isArray(data?.errors)
+            ? data.errors.map(formatServerError).filter((message): message is string => Boolean(message)).join(' | ')
+            : null) ||
           data?.message ||
           `Request failed with ${res.status}`
         console.error('[/api/send-commission] server response:', { status: res.status, data })

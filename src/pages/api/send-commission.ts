@@ -31,6 +31,15 @@ function getSupabaseUrl(): string | undefined {
   return process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL
 }
 
+function errorMessage(error: unknown): string {
+  if (error instanceof Error) return error.message
+  if (typeof error === 'object' && error !== null && 'message' in error) {
+    const message = (error as { message?: unknown }).message
+    if (typeof message === 'string') return message
+  }
+  return 'Unexpected server error'
+}
+
 function getSupabaseClient(): SupabaseClient {
   const supabaseUrl = getSupabaseUrl()
   const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY
@@ -389,10 +398,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   } catch (e) {
     // Keep client responses generic, but make the actionable cause available
     // in Vercel Function Logs without exposing any environment values.
-    console.error('Commission request processing failed:', e)
+    const message = errorMessage(e)
+    console.error('Commission request processing failed:', message)
     return res.status(500).json({
       message: 'Error processing request. Please try again.',
-      errors: [String(e)],
+      errors: [message],
     })
   }
 }
