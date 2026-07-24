@@ -4,6 +4,7 @@ const links = [
   { label: 'Home', href: '/' },
   { label: 'Builds', href: '/builds' },
   { label: 'Player Warps', href: '/player-warps' },
+  { label: 'Commission', href: '/commissions' },
   { label: 'About', href: '/#about' },
   { label: 'Contact', href: '/contact' },
 ]
