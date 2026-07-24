@@ -137,11 +137,10 @@ function validateEnv() {
   if (!key || key.includes('YOUR_SERVICE_ROLE') || key.length < 20) {
     issues.push('SUPABASE_SERVICE_ROLE_KEY is missing or still a placeholder')
   }
-  if (!webhook || webhook.includes('...') || !webhook.startsWith('http')) {
-    issues.push('WEBHOOK_URL is missing or still a placeholder')
-  }
-  if (!resend || resend.includes('YOUR_RESEND') || resend.length < 10) {
-    issues.push('RESEND_API_KEY is missing or still a placeholder')
+  const hasWebhook = Boolean(webhook && !webhook.includes('...') && webhook.startsWith('http'))
+  const hasResend = Boolean(resend && !resend.includes('YOUR_RESEND') && resend.length >= 10)
+  if (!hasWebhook && !hasResend) {
+    issues.push('Configure a valid WEBHOOK_URL or RESEND_API_KEY for notifications')
   }
 
   if (issues.length > 0) {
@@ -388,6 +387,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       errors: errors.length ? errors : undefined,
     })
   } catch (e) {
+    // Keep client responses generic, but make the actionable cause available
+    // in Vercel Function Logs without exposing any environment values.
+    console.error('Commission request processing failed:', e)
     return res.status(500).json({
       message: 'Error processing request. Please try again.',
       errors: [String(e)],

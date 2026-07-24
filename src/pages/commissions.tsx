@@ -188,8 +188,8 @@ export default function CommissionsPage() {
       if (!res.ok) {
         const data = await res.json().catch(() => null)
         const serverMessage =
+          (Array.isArray(data?.errors) && data.errors.length > 0 ? data.errors.join(' | ') : null) ||
           data?.message ||
-          (Array.isArray(data?.errors) ? data.errors.join(' | ') : null) ||
           `Request failed with ${res.status}`
         console.error('[/api/send-commission] server response:', { status: res.status, data })
         throw new Error(serverMessage)
