@@ -25,13 +25,19 @@ type UploadedLinks = {
   photos: string[]
 }
 
+function getSupabaseUrl(): string | undefined {
+  // Vercel's Supabase integration provides the project URL under this public
+  // name. The service-role key remains server-only.
+  return process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL
+}
+
 function getSupabaseClient(): SupabaseClient {
-  const supabaseUrl = process.env.SUPABASE_URL
+  const supabaseUrl = getSupabaseUrl()
   const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY
 
   if (!supabaseUrl || !supabaseKey) {
     throw new Error(
-      'Missing Supabase env vars. Set SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY in .env.local'
+      'Missing Supabase env vars. Set NEXT_PUBLIC_SUPABASE_URL (or SUPABASE_URL) and SUPABASE_SERVICE_ROLE_KEY.'
     )
   }
 
@@ -120,13 +126,13 @@ function pickUploadedFile(f: any): UploadedFile | null {
 
 function validateEnv() {
   const issues: string[] = []
-  const url = process.env.SUPABASE_URL
+  const url = getSupabaseUrl()
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY
   const webhook = process.env.WEBHOOK_URL
   const resend = process.env.RESEND_API_KEY
 
   if (!url || url.includes('YOUR_PROJECT_REF') || !url.startsWith('http')) {
-    issues.push('SUPABASE_URL is missing or still a placeholder')
+    issues.push('NEXT_PUBLIC_SUPABASE_URL (or SUPABASE_URL) is missing or still a placeholder')
   }
   if (!key || key.includes('YOUR_SERVICE_ROLE') || key.length < 20) {
     issues.push('SUPABASE_SERVICE_ROLE_KEY is missing or still a placeholder')
@@ -388,4 +394,3 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     })
   }
 }
-
