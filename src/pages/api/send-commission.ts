@@ -11,6 +11,7 @@ type ResponseData = {
 
 type CommissionForm = {
   name: string
+  discordUser?: string
   buildType: string
   subserver?: string
   budget?: string
@@ -187,6 +188,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
     const commission: CommissionForm = {
       name: getText('name'),
+      discordUser: getText('discordUser') || undefined,
       buildType: getText('buildType'),
       subserver: getText('subserver') || undefined,
       budget: getText('budget') || undefined,
@@ -257,7 +259,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         { name: 'Username', value: commission.name || '—', inline: true },
         {
           name: 'Discord User',
-          value: commission.yourEmail ? commission.yourEmail : '—',
+          value: commission.discordUser || '—',
+          inline: true,
+        },
+        {
+          name: 'Email',
+          value: commission.yourEmail || '—',
           inline: true,
         },
         { name: 'Subserver', value: commission.subserver || 'Not specified', inline: true },
@@ -322,6 +329,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         const html = `
           <h2>New Build Commission Request</h2>
           <p><strong>Username:</strong> ${commission.name}</p>
+          <p><strong>Discord User:</strong> ${commission.discordUser || 'Not specified'}</p>
+          <p><strong>Email:</strong> ${commission.yourEmail || 'Not specified'}</p>
           <p><strong>Build Type:</strong> ${commission.buildType}</p>
           <p><strong>Subserver:</strong> ${commission.subserver || 'Not specified'}</p>
           <p><strong>Budget:</strong> ${commission.budget || 'Not specified'}</p>
