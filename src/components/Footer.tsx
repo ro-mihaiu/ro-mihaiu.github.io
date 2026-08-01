@@ -20,6 +20,9 @@ export default function Footer() {
                 <h3 className="text-sm uppercase tracking-[0.3em] text-blossom-pink/80">Quick links</h3>
                 <ul className="mt-5 space-y-3 text-gray-300">
                   <li>
+                    <a href="https://bot.ro-mihaiu.xyz/commands" target="_blank" rel="noopener noreferrer" className="hover:text-white">Bot Commands</a>
+                  </li>
+                  <li>
                     <Link href="/tos" className="hover:text-white">Terms of Service</Link>
                   </li>
                   <li>

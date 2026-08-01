@@ -6,6 +6,7 @@ const links = [
   { label: 'Player Warps', href: '/player-warps' },
   { label: 'Commission', href: '/commissions' },
   { label: 'About', href: '/#about' },
+  { label: 'Bot', href: 'https://bot.ro-mihaiu.xyz/commands' },
   { label: 'Contact', href: '/contact' },
 ]
 
