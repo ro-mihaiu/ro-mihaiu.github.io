@@ -8,16 +8,13 @@ const links = [
   { label: 'About', href: '/#about' },
 ]
 
-const toolGroups = [
-  {
-    label: 'Discord',
-    href: '/tools/discord',
-    children: [{ label: 'ANSI Text Converter', href: '/tools/discord/text' }],
-  },
+const tools = [
+  { label: 'Discord', href: '/tools/discord' },
+  { label: 'Minecraft', href: '/tools/minecraft' },
 ]
 
 export default function Navbar() {
-  const [openGroup, setOpenGroup] = useState<string | null>(null)
+  const [openTools, setOpenTools] = useState(false)
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-black/30" role="banner">
@@ -36,17 +33,14 @@ export default function Navbar() {
             </a>
           ))}
 
-          {/* Tools dropdown */}
+          {/* Tools dropdown -> Discord / Minecraft */}
           <div className="relative">
-            <a
-              href="/tools"
-              className="relative px-1 py-2 text-sm text-gray-200 hover:text-white inline-flex items-center gap-1"
-              onClick={(e) => {
-                e.preventDefault()
-                setOpenGroup(openGroup === 'tools' ? null : 'tools')
-              }}
+            <button
+              type="button"
+              onClick={() => setOpenTools((v) => !v)}
               aria-haspopup="true"
-              aria-expanded={openGroup === 'tools'}
+              aria-expanded={openTools}
+              className="relative px-1 py-2 text-sm text-gray-200 hover:text-white inline-flex items-center gap-1"
             >
               <span className="hover:underline decoration-sakura-pink decoration-2">Tools</span>
               <svg
@@ -61,28 +55,19 @@ export default function Navbar() {
                   clipRule="evenodd"
                 />
               </svg>
-            </a>
+            </button>
 
-            {openGroup === 'tools' && (
-              <div className="absolute left-0 mt-2 w-64 rounded-2xl border border-white/10 bg-black/90 p-2 shadow-2xl shadow-black/50 backdrop-blur-xl">
-                {toolGroups.map((group) => (
-                  <div key={group.label}>
-                    <div className="px-3 py-2 text-xs font-semibold uppercase tracking-wider text-sakura-pink/80">
-                      <a href={group.href} className="hover:text-sakura-pink">
-                        {group.label}
-                      </a>
-                    </div>
-                    {group.children.map((child) => (
-                      <a
-                        key={child.href}
-                        href={child.href}
-                        onClick={() => setOpenGroup(null)}
-                        className="block rounded-lg px-3 py-2 text-sm text-gray-200 transition hover:bg-white/10 hover:text-white"
-                      >
-                        {child.label}
-                      </a>
-                    ))}
-                  </div>
+            {openTools && (
+              <div className="absolute left-0 mt-2 w-56 rounded-2xl border border-white/10 bg-black/90 p-2 shadow-2xl shadow-black/50 backdrop-blur-xl">
+                {tools.map((tool) => (
+                  <a
+                    key={tool.href}
+                    href={tool.href}
+                    onClick={() => setOpenTools(false)}
+                    className="block rounded-lg px-3 py-2 text-sm text-gray-200 transition hover:bg-white/10 hover:text-white"
+                  >
+                    {tool.label}
+                  </a>
                 ))}
               </div>
             )}
